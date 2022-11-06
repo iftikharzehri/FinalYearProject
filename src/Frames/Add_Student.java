@@ -41,7 +41,7 @@ public class Add_Student extends javax.swing.JFrame {
         deptCombo = new javax.swing.JComboBox<>();
         contactTXT = new javax.swing.JTextField();
         semesterCombo = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        savebtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         sessionTXT = new javax.swing.JTextField();
 
@@ -98,13 +98,13 @@ public class Add_Student extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(153, 255, 153));
-        jButton1.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/save.png")); // NOI18N
-        jButton1.setText("SAVE");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        savebtn.setBackground(new java.awt.Color(153, 255, 153));
+        savebtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/save.png")); // NOI18N
+        savebtn.setText("SAVE");
+        savebtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        savebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                savebtnActionPerformed(evt);
             }
         });
 
@@ -141,7 +141,7 @@ public class Add_Student extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(contactTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(savebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(nameTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
@@ -173,7 +173,7 @@ public class Add_Student extends javax.swing.JFrame {
                 .addComponent(contactTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(savebtn)
                     .addComponent(jButton2))
                 .addGap(64, 64, 64))
         );
@@ -207,32 +207,40 @@ public class Add_Student extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deptComboActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nic = nicTXT.getText().trim();
-        String name = nameTXT.getText().trim();
-        String fathername = fatherTXT.getText().trim();
-        String dept = (String) deptCombo.getSelectedItem();
-        String session = sessionTXT.getText().trim();
-        String semester = (String) semesterCombo.getSelectedItem();
-        String contact = contactTXT.getText();
+    private void savebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebtnActionPerformed
+        String nic = nicTXT.getText().toString().trim();
+        String name = nameTXT.getText().toString().trim();
+        String fathername = fatherTXT.getText().toString().trim();
+        String dept = (String) deptCombo.getSelectedItem().toString();
+        String session = sessionTXT.getText().toString().trim();
+        String semester = (String) semesterCombo.getSelectedItem().toString();
+        String contact = contactTXT.getText().toString().trim();
         try {
-            Connection con = (Connection) ConnectionProvider.connect();
-            Statement statement = con.createStatement();
-            String query = "INSERT INTO STUDENT"
-                    + "VALUES('" + nic + "','" + name + "','" + fathername + "','" + dept + "','" + session + "','" + semester + "','"+contact+"')";
+            Connection con = (Connection) ConnectionProvider.getCon();
+            String query = "INSERT INTO Student"
+                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
+                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
+            PreparedStatement statement
+                    = con.prepareStatement("INSERT INTO Student"
+                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
+                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')");
+//Statement statement = con.createStatement();
+
             statement.executeUpdate(query);
-            JOptionPane.showMessageDialog(null, "Updated sucessfully...");
-            setVisible(false);
-            new Add_Student().setVisible(true);
+            JOptionPane.showMessageDialog(null, "added  sucessfully...");
+          //  setVisible(false);
+          //  new Add_Student().setVisible(true);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Update failed...");
-            setVisible(false);
-            new Add_Student().setVisible(true);
+            JOptionPane.showMessageDialog(null, "additon  failed...");
+          //  setVisible(false);
+          //  new Add_Student().setVisible(true);
             System.out.println(e);
+           e.printStackTrace();
 
         }
+        
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_savebtnActionPerformed
 
     private void semesterComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semesterComboActionPerformed
         // TODO add your handling code here:
@@ -281,12 +289,12 @@ public class Add_Student extends javax.swing.JFrame {
     private javax.swing.JTextField contactTXT;
     private javax.swing.JComboBox<String> deptCombo;
     private javax.swing.JTextField fatherTXT;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTXT;
     private javax.swing.JTextField nicTXT;
+    private javax.swing.JButton savebtn;
     private javax.swing.JComboBox<String> semesterCombo;
     private javax.swing.JTextField sessionTXT;
     // End of variables declaration//GEN-END:variables

@@ -31,8 +31,8 @@ public class LogIn extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        userNTxt = new javax.swing.JTextField();
+        passTxt = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,23 +57,23 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(0, 204, 204));
-        jTextField1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USERNAME", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        userNTxt.setBackground(new java.awt.Color(0, 204, 204));
+        userNTxt.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        userNTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        userNTxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USERNAME", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        userNTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                userNTxtActionPerformed(evt);
             }
         });
 
-        jPasswordField1.setBackground(new java.awt.Color(0, 204, 204));
-        jPasswordField1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PASSWORD", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        passTxt.setBackground(new java.awt.Color(0, 204, 204));
+        passTxt.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        passTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        passTxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PASSWORD", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        passTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                passTxtActionPerformed(evt);
             }
         });
 
@@ -86,14 +86,14 @@ public class LogIn extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(423, 423, 423)
                                 .addComponent(jLabel2))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(270, 270, 270)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(userNTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(404, 404, 404)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -110,9 +110,9 @@ public class LogIn extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel2)
                 .addGap(58, 58, 58)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userNTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jButton1)
                 .addContainerGap(104, Short.MAX_VALUE))
@@ -132,16 +132,17 @@ public class LogIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void passTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_passTxtActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void userNTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_userNTxtActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(jTextField1.getText().trim().toLowerCase().equals("admin")&& jPasswordField1.getText().toLowerCase().trim().equals("admin")){
+     
+        if(userNTxt.getText().trim().toLowerCase().equals("admin")&& passTxt.getText().toLowerCase().trim().equals("admin")){
             
             setVisible(false);
             new Home().setVisible(true);
@@ -191,7 +192,7 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField passTxt;
+    private javax.swing.JTextField userNTxt;
     // End of variables declaration//GEN-END:variables
 }

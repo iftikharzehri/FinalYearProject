@@ -171,9 +171,9 @@ public class Add_Book extends javax.swing.JFrame {
         String arthor = arthorTXT.getText().trim();
         String publisher = publisherTXT.getText().trim();
         try {
-            Connection con = (Connection) ConnectionProvider.connect();
+            Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
-            String Query="INSERT INTO connectdb.addBook VALUES('"+bookID+"','"+name+"','"+edition+"','"+arthor+"','"+publisher+"')";
+            String Query="INSERT INTO Student.Book VALUES('"+bookID+"','"+name+"','"+edition+"','"+arthor+"','"+publisher+"')";
             statement.executeUpdate(Query);
             JOptionPane.showMessageDialog(null,"Book added sucessfully...");
             setVisible(false);
