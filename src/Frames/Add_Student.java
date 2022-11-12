@@ -217,16 +217,18 @@ public class Add_Student extends javax.swing.JFrame {
         String contact = contactTXT.getText().toString().trim();
         try {
             Connection con = (Connection) ConnectionProvider.getCon();
-            String query = "INSERT INTO Student"
-                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
+            String insertQuery = "insert into Student(cnic, name, fathername, department, session, semester, contact) values ('" + nic + "','" + name + "','" + fathername + "',"
                     + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
-            PreparedStatement statement
-                    = con.prepareStatement("INSERT INTO Student"
-                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
-                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')");
-//Statement statement = con.createStatement();
+            
+//            String query = "INSERT INTO Student"
+//                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
+//                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
+//            PreparedStatement statement = con.prepareStatement("INSERT INTO Student"
+//                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
+//                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')");
+            Statement statement = con.createStatement();
 
-            statement.executeUpdate(query);
+            statement.executeQuery(insertQuery);
             JOptionPane.showMessageDialog(null, "added  sucessfully...");
           //  setVisible(false);
           //  new Add_Student().setVisible(true);
