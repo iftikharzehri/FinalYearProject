@@ -24,42 +24,6 @@ public class Add_Student extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void callToInsert() {
-        String nic = nicTXT.getText().toString().trim();
-        String name = nameTXT.getText().toString().trim();
-        String fathername = fatherTXT.getText().toString().trim();
-        String dept = (String) deptCombo.getSelectedItem().toString();
-        String session = sessionTXT.getText().toString().trim();
-        String semester = (String) semesterCombo.getSelectedItem().toString();
-        String contact = contactTXT.getText().toString().trim();
-        try {
-            Connection con = (Connection) ConnectionProvider.getCon();
-            String insertQuery = "insert into Student(cnic, name, fathername, department, session, semester, contact) values ('" + nic + "','" + name + "','" + fathername + "',"
-                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
-
-//            String query = "INSERT INTO Student"
-//                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
-//                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
-            PreparedStatement statement = con.prepareStatement(insertQuery);
-//            Statement statement = con.createStatement();
-
-//            statement.executeQuery(insertQuery);
-            
-statement.execute();
-JOptionPane.showMessageDialog(null, "added  sucessfully...");
-            //  setVisible(false);
-            //  new Add_Student().setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "additon  failed...");
-            //  setVisible(false);
-            //  new Add_Student().setVisible(true);
-            System.out.println(e);
-            e.printStackTrace();
-
-        }
-
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -244,8 +208,38 @@ JOptionPane.showMessageDialog(null, "added  sucessfully...");
     }//GEN-LAST:event_deptComboActionPerformed
 
     private void savebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebtnActionPerformed
-        callToInsert();
-    }//GEN-LAST:event_savebtnActionPerformed
+
+        String nic = nicTXT.getText().toString().trim();
+        String name = nameTXT.getText().toString().trim();
+        String fathername = fatherTXT.getText().toString().trim();
+        String dept = (String) deptCombo.getSelectedItem().toString();
+        String session = sessionTXT.getText().toString().trim();
+        String semester = (String) semesterCombo.getSelectedItem().toString();
+        String contact = contactTXT.getText().toString().trim();
+        try {
+            Connection con = (Connection) ConnectionProvider.getCon();
+            String insertQuery = "insert into Student(cnic, name, fathername, department, session, semester, contact) values ('" + nic + "','" + name + "','" + fathername + "',"
+                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
+
+//            String query = "INSERT INTO Student"
+//                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
+//                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
+            PreparedStatement statement = con.prepareStatement(insertQuery);
+//            Statement statement = con.createStatement();
+
+//            statement.executeQuery(insertQuery);
+            statement.execute();
+            JOptionPane.showMessageDialog(null, "added  sucessfully...");
+            //  setVisible(false);
+            //  new Add_Student().setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "additon  failed...");
+            //  setVisible(false);
+            //  new Add_Student().setVisible(true);
+            System.out.println(e);
+            e.printStackTrace();
+
+        }    }//GEN-LAST:event_savebtnActionPerformed
 
     private void semesterComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semesterComboActionPerformed
         // TODO add your handling code here:
