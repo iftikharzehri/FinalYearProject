@@ -227,8 +227,8 @@ public class Add_Student extends javax.swing.JFrame {
             PreparedStatement statement = con.prepareStatement(insertQuery);
 //            Statement statement = con.createStatement();
 
-//            statement.executeQuery(insertQuery);
-            statement.execute();
+            statement.executeQuery(insertQuery);
+         //   statement.execute();
             JOptionPane.showMessageDialog(null, "added  sucessfully...");
             //  setVisible(false);
             //  new Add_Student().setVisible(true);
