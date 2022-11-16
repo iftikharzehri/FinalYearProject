@@ -33,7 +33,6 @@ public class Issue_Book extends javax.swing.JFrame {
         ReturnDateP = new com.toedter.calendar.JDateChooser();
         issueBTN = new javax.swing.JButton();
         CloseBtn = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Issue a Book");
@@ -73,28 +72,21 @@ public class Issue_Book extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setBackground(new java.awt.Color(0, 204, 204));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aziz Ur Rehman", "Sultana" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(230, 230, 230)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ReturnDateP, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(issueDateP, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BookIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGap(233, 233, 233)
-                            .addComponent(CloseBtn))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(230, 230, 230)
-                            .addComponent(stdIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(stdIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(issueBTN)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(128, 128, 128)
+                        .addComponent(CloseBtn)))
                 .addContainerGap(206, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -108,13 +100,11 @@ public class Issue_Book extends javax.swing.JFrame {
                 .addComponent(issueDateP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(ReturnDateP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CloseBtn)
-                    .addComponent(issueBTN))
-                .addGap(50, 50, 50))
+                    .addComponent(issueBTN)
+                    .addComponent(CloseBtn))
+                .addGap(125, 125, 125))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,7 +172,6 @@ public class Issue_Book extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser ReturnDateP;
     private javax.swing.JButton issueBTN;
     private com.toedter.calendar.JDateChooser issueDateP;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField stdIdTxt;
     // End of variables declaration//GEN-END:variables
