@@ -50,7 +50,7 @@ public class Add_Book extends javax.swing.JFrame {
         nameTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book Name", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         arthorTXT.setBackground(new java.awt.Color(0, 204, 204));
-        arthorTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Arthor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        arthorTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Author", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         arthorTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 arthorTXTActionPerformed(evt);
@@ -108,7 +108,7 @@ public class Add_Book extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtn)
                     .addComponent(closeBtn))
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

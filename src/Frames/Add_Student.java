@@ -214,17 +214,17 @@ public class Add_Student extends javax.swing.JFrame {
         String semester = (String) semesterCombo.getSelectedItem();
         try {
             Connection con = (Connection) ConnectionProvider.getCon();
-            String insertQuery = "insert into Student values ('" + cnic + "','" + name + "','" + fathername + "',"
-                    + "'" + phone + "','" + department + "','" + session + "','" + semester + "')";
-
-//            String query = "INSERT INTO Student"
-//                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
-//                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
-         //   PreparedStatement statement = con.prepareStatement(insertQuery);
             Statement statement = con.createStatement();
 
-            statement.executeQuery(insertQuery);
-         //   statement.execute();
+//String insertQuery = "INSERT INTO Student "
+//                    + "(S_ID, Student_Name, Student_F_Name, Student_Phone, Student_Dept, Session, Semester)"
+//                    + " VALUES ('"+cnic+"', '"+name+"', '"+fathername+"', '"+phone+"', '"+department+"', '"+session+"','"+semester+"')";
+            String query = "INSERT INTO Student"
+                    + "VALUES('" + cnic + "', '" + name + "', '" + fathername + "', '" + phone + "', '" + department + "', '" + session + "','" + semester + "')";
+            //   PreparedStatement statement = con.prepareStatement(insertQuery);
+
+            statement.executeQuery(query);
+            //   statement.execute();
             JOptionPane.showMessageDialog(null, "added  sucessfully...");
             //  setVisible(false);
             //  new Add_Student().setVisible(true);

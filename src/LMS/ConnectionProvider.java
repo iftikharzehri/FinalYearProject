@@ -23,12 +23,8 @@ public class ConnectionProvider {
             Class.forName("com.mysql.cj.jdbc.Driver");
             java.sql.Connection connection = DriverManager.getConnection(url, user, password);
 //           return (Connection) connection;
-            Statement statement = connection.createStatement();
 
-            System.out.println("Connected sucessfully...");
-            String sql = "INSERT INTO LMS.Student VALUES ('4', 'llll', 'mnmn', '8787', 'llb')";
 
-            statement.execute(sql);
 
             if (connection != null) {
                 System.out.println("connected sucessfully..." + connection.getCatalog());
