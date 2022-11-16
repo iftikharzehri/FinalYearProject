@@ -7,25 +7,34 @@ package LMS;
 import com.sun.jdi.connect.spi.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
  * @author ifti //
  */
 public class ConnectionProvider {
+
     public static Connection getCon() {
         try {
             String user = "root";
             String password = "iftikharzehri";
-            String url = "jdbc:mysql://127.0.0.1:3306/LMS";
+            String url = "jdbc:mysql://localhost:3306/LMS";
             Class.forName("com.mysql.cj.jdbc.Driver");
             java.sql.Connection connection = DriverManager.getConnection(url, user, password);
-           // return (Connection) connection;
-           if (connection != null) {
+//           return (Connection) connection;
+            Statement statement = connection.createStatement();
+
+            System.out.println("Connected sucessfully...");
+            String sql = "INSERT INTO LMS.Student VALUES ('4', 'llll', 'mnmn', '8787', 'llb')";
+
+            statement.execute(sql);
+
+            if (connection != null) {
                 System.out.println("connected sucessfully..." + connection.getCatalog());
             } else {
                 System.out.println("fail...");
-                
+
             }
         } catch (ClassNotFoundException ex) {
 
@@ -39,5 +48,5 @@ public class ConnectionProvider {
         return null;
 
     }
-   
+
 }

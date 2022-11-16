@@ -35,9 +35,7 @@ public class Add_Book extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         idTXT = new javax.swing.JTextField();
         nameTXT = new javax.swing.JTextField();
-        editionTXT = new javax.swing.JTextField();
         arthorTXT = new javax.swing.JTextField();
-        publisherTXT = new javax.swing.JTextField();
         saveBtn = new javax.swing.JButton();
         closeBtn = new javax.swing.JButton();
 
@@ -51,27 +49,11 @@ public class Add_Book extends javax.swing.JFrame {
         nameTXT.setBackground(new java.awt.Color(0, 204, 204));
         nameTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book Name", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
-        editionTXT.setBackground(new java.awt.Color(0, 204, 204));
-        editionTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edition", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        editionTXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editionTXTActionPerformed(evt);
-            }
-        });
-
         arthorTXT.setBackground(new java.awt.Color(0, 204, 204));
         arthorTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Arthor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         arthorTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 arthorTXTActionPerformed(evt);
-            }
-        });
-
-        publisherTXT.setBackground(new java.awt.Color(0, 204, 204));
-        publisherTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Publisher", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        publisherTXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                publisherTXTActionPerformed(evt);
             }
         });
 
@@ -101,20 +83,17 @@ public class Add_Book extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(172, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(closeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(186, 186, 186))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(arthorTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(publisherTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(143, 143, 143))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(arthorTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(143, 143, 143))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(204, 204, 204)
+                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(closeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,17 +102,13 @@ public class Add_Book extends javax.swing.JFrame {
                 .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(nameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(editionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(32, 32, 32)
                 .addComponent(arthorTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(publisherTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(74, 74, 74)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtn)
                     .addComponent(closeBtn))
-                .addGap(110, 110, 110))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,10 +129,6 @@ public class Add_Book extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_arthorTXTActionPerformed
 
-    private void publisherTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publisherTXTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_publisherTXTActionPerformed
-
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
 
         dispose();
@@ -167,13 +138,11 @@ public class Add_Book extends javax.swing.JFrame {
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         String bookID = idTXT.getText().trim();
         String name = nameTXT.getText().trim();
-        String edition = editionTXT.getText().trim();
         String arthor = arthorTXT.getText().trim();
-        String publisher = publisherTXT.getText().trim();
         try {
             Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
-            String Query="INSERT INTO Student.Book VALUES('"+bookID+"','"+name+"','"+edition+"','"+arthor+"','"+publisher+"')";
+            String Query="INSERT INTO Book VALUES('"+bookID+"','"+name+"','"+arthor+"')";
             statement.executeUpdate(Query);
             JOptionPane.showMessageDialog(null,"Book added sucessfully...");
             setVisible(false);
@@ -184,10 +153,6 @@ public class Add_Book extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_saveBtnActionPerformed
-
-    private void editionTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editionTXTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editionTXTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,11 +192,9 @@ public class Add_Book extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField arthorTXT;
     private javax.swing.JButton closeBtn;
-    private javax.swing.JTextField editionTXT;
     private javax.swing.JTextField idTXT;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTXT;
-    private javax.swing.JTextField publisherTXT;
     private javax.swing.JButton saveBtn;
     // End of variables declaration//GEN-END:variables
 }

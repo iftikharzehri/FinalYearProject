@@ -36,14 +36,14 @@ public class Add_Student extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         nameTXT = new javax.swing.JTextField();
-        fatherTXT = new javax.swing.JTextField();
+        phoneTXT = new javax.swing.JTextField();
         nicTXT = new javax.swing.JTextField();
-        deptCombo = new javax.swing.JComboBox<>();
-        contactTXT = new javax.swing.JTextField();
-        semesterCombo = new javax.swing.JComboBox<>();
-        savebtn = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         sessionTXT = new javax.swing.JTextField();
+        deptCombo = new javax.swing.JComboBox<>();
+        savebtn = new javax.swing.JButton();
+        closebtn = new javax.swing.JButton();
+        fatherTXT1 = new javax.swing.JTextField();
+        semesterCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,12 +55,12 @@ public class Add_Student extends javax.swing.JFrame {
         nameTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         nameTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NAME", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
-        fatherTXT.setBackground(new java.awt.Color(0, 204, 204));
-        fatherTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        fatherTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FATHER NAME", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        fatherTXT.addActionListener(new java.awt.event.ActionListener() {
+        phoneTXT.setBackground(new java.awt.Color(0, 204, 204));
+        phoneTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        phoneTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PHONE NO.", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        phoneTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fatherTXTActionPerformed(evt);
+                phoneTXTActionPerformed(evt);
             }
         });
 
@@ -68,33 +68,22 @@ public class Add_Student extends javax.swing.JFrame {
         nicTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         nicTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CNIC", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
+        sessionTXT.setBackground(new java.awt.Color(0, 204, 204));
+        sessionTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        sessionTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SESSION", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        sessionTXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sessionTXTActionPerformed(evt);
+            }
+        });
+
         deptCombo.setBackground(new java.awt.Color(0, 204, 204));
         deptCombo.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        deptCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NULL", "CS & IT", "LLB", "BBA" }));
+        deptCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NULL", "CS", "LLB", "BBA", " " }));
         deptCombo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DEPARTMENT", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        deptCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         deptCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deptComboActionPerformed(evt);
-            }
-        });
-
-        contactTXT.setBackground(new java.awt.Color(0, 204, 204));
-        contactTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        contactTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CONTACT", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        contactTXT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactTXTActionPerformed(evt);
-            }
-        });
-
-        semesterCombo.setBackground(new java.awt.Color(0, 204, 204));
-        semesterCombo.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        semesterCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", " " }));
-        semesterCombo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMESTER", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        semesterCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                semesterComboActionPerformed(evt);
             }
         });
 
@@ -108,22 +97,32 @@ public class Add_Student extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(250, 148, 148));
-        jButton2.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/cross.png")); // NOI18N
-        jButton2.setText("CLOSE");
-        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        closebtn.setBackground(new java.awt.Color(250, 148, 148));
+        closebtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/cross.png")); // NOI18N
+        closebtn.setText("CLOSE");
+        closebtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        closebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                closebtnActionPerformed(evt);
             }
         });
 
-        sessionTXT.setBackground(new java.awt.Color(0, 204, 204));
-        sessionTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        sessionTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SESSION", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-        sessionTXT.addActionListener(new java.awt.event.ActionListener() {
+        fatherTXT1.setBackground(new java.awt.Color(0, 204, 204));
+        fatherTXT1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        fatherTXT1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FATHER NAME", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        fatherTXT1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sessionTXTActionPerformed(evt);
+                fatherTXT1ActionPerformed(evt);
+            }
+        });
+
+        semesterCombo.setBackground(new java.awt.Color(0, 204, 204));
+        semesterCombo.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        semesterCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", " " }));
+        semesterCombo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMESTER", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        semesterCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                semesterComboActionPerformed(evt);
             }
         });
 
@@ -138,19 +137,20 @@ public class Add_Student extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(370, 370, 370)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(contactTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(savebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(nameTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
-                            .addComponent(sessionTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
-                            .addComponent(deptCombo, 0, 433, Short.MAX_VALUE)
-                            .addComponent(fatherTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
-                            .addComponent(semesterCombo, 0, 433, Short.MAX_VALUE)
-                            .addComponent(nicTXT))))
-                .addContainerGap(357, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(semesterCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(sessionTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(savebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(nameTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                                .addComponent(phoneTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                                .addComponent(deptCombo, 0, 439, Short.MAX_VALUE)
+                                .addComponent(nicTXT)
+                                .addComponent(fatherTXT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)))))
+                .addContainerGap(351, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,20 +161,20 @@ public class Add_Student extends javax.swing.JFrame {
                 .addComponent(nicTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(fatherTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(fatherTXT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(phoneTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(deptCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(sessionTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(semesterCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(contactTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(savebtn)
-                    .addComponent(jButton2))
+                    .addComponent(closebtn))
                 .addGap(64, 64, 64))
         );
 
@@ -192,40 +192,36 @@ public class Add_Student extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fatherTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatherTXTActionPerformed
+    private void phoneTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fatherTXTActionPerformed
+    }//GEN-LAST:event_phoneTXTActionPerformed
 
-    private void contactTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactTXTActionPerformed
+    private void sessionTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sessionTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contactTXTActionPerformed
+    }//GEN-LAST:event_sessionTXTActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void deptComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deptComboActionPerformed
+    private void closebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closebtnActionPerformed
+        dispose();    }//GEN-LAST:event_closebtnActionPerformed
 
     private void savebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savebtnActionPerformed
 
-        String nic = nicTXT.getText().toString().trim();
-        String name = nameTXT.getText().toString().trim();
-        String fathername = fatherTXT.getText().toString().trim();
-        String dept = (String) deptCombo.getSelectedItem().toString();
-        String session = sessionTXT.getText().toString().trim();
-        String semester = (String) semesterCombo.getSelectedItem().toString();
-        String contact = contactTXT.getText().toString().trim();
+        String cnic = nicTXT.getText().trim();
+        String name = nameTXT.getText().trim();
+        String fathername = phoneTXT.getText().trim();
+        String phone = phoneTXT.getText().toString();
+        String department = (String) deptCombo.getSelectedItem();
+        String session = sessionTXT.getText().trim();
+        String semester = (String) semesterCombo.getSelectedItem();
         try {
             Connection con = (Connection) ConnectionProvider.getCon();
-            String insertQuery = "insert into Student(cnic, name, fathername, department, session, semester, contact) values ('" + nic + "','" + name + "','" + fathername + "',"
-                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
+            String insertQuery = "insert into Student values ('" + cnic + "','" + name + "','" + fathername + "',"
+                    + "'" + phone + "','" + department + "','" + session + "','" + semester + "')";
 
 //            String query = "INSERT INTO Student"
 //                    + "VALUES('" + nic + "','" + name + "','" + fathername + "',"
 //                    + "'" + dept + "','" + session + "','" + semester + "','" + contact + "')";
-            PreparedStatement statement = con.prepareStatement(insertQuery);
-//            Statement statement = con.createStatement();
+         //   PreparedStatement statement = con.prepareStatement(insertQuery);
+            Statement statement = con.createStatement();
 
             statement.executeQuery(insertQuery);
          //   statement.execute();
@@ -241,13 +237,17 @@ public class Add_Student extends javax.swing.JFrame {
 
         }    }//GEN-LAST:event_savebtnActionPerformed
 
+    private void deptComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deptComboActionPerformed
+
+    private void fatherTXT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatherTXT1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fatherTXT1ActionPerformed
+
     private void semesterComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semesterComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_semesterComboActionPerformed
-
-    private void sessionTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sessionTXTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sessionTXTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,14 +285,14 @@ public class Add_Student extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField contactTXT;
+    private javax.swing.JButton closebtn;
     private javax.swing.JComboBox<String> deptCombo;
-    private javax.swing.JTextField fatherTXT;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField fatherTXT1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTXT;
     private javax.swing.JTextField nicTXT;
+    private javax.swing.JTextField phoneTXT;
     private javax.swing.JButton savebtn;
     private javax.swing.JComboBox<String> semesterCombo;
     private javax.swing.JTextField sessionTXT;
