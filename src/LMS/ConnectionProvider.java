@@ -4,10 +4,12 @@
  */
 package LMS;
 
+import Frames.LogIn;
 import com.sun.jdi.connect.spi.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -21,11 +23,13 @@ public class ConnectionProvider {
             String password = "iftikharzehri";
             String url = "jdbc:mysql://localhost:3306/LMS";
             Class.forName("com.mysql.cj.jdbc.Driver");
+//            String query = "INSERT INTO logIn VALUES (2121, 'kamran', 'KHAN', 22)";
+//String sql = "INSERT INTO logIn (`id`, `first`, `last`, `age`) VALUES ('4', 'asif', 'khan', '45');";
             java.sql.Connection connection = DriverManager.getConnection(url, user, password);
-//           return (Connection) connection;
-
-
-
+//            Statement st = connection.createStatement();
+//           PreparedStatement ps =connection.prepareStatement(sql);
+//            ps.execute();
+//            st.executeQuery(sql);
             if (connection != null) {
                 System.out.println("connected sucessfully..." + connection.getCatalog());
             } else {

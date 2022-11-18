@@ -45,7 +45,7 @@ public class Add_Student extends javax.swing.JFrame {
         fatherTXT1 = new javax.swing.JTextField();
         semesterCombo = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -131,33 +131,32 @@ public class Add_Student extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(370, 370, 370)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(531, 531, 531)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(370, 370, 370)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(semesterCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(sessionTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(savebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(nameTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
-                                .addComponent(phoneTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
-                                .addComponent(deptCombo, 0, 439, Short.MAX_VALUE)
-                                .addComponent(nicTXT)
-                                .addComponent(fatherTXT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)))))
+                    .addComponent(semesterCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(sessionTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(savebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nameTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                        .addComponent(phoneTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                        .addComponent(deptCombo, 0, 439, Short.MAX_VALUE)
+                        .addComponent(nicTXT)
+                        .addComponent(fatherTXT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)))
                 .addContainerGap(351, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(508, 508, 508))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addGap(38, 38, 38)
                 .addComponent(nicTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,7 +185,7 @@ public class Add_Student extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -214,17 +213,19 @@ public class Add_Student extends javax.swing.JFrame {
         String semester = (String) semesterCombo.getSelectedItem();
         try {
             Connection con = (Connection) ConnectionProvider.getCon();
-            Statement statement = con.createStatement();
+//            Statement statement = con.createStatement();
+            String insertQuery = "INSERT INTO Student "
+                    + "(S_ID, Student_Name, Student_F_Name, Student_Phone, Student_Dept, Session, Semester)"
+                    + " VALUES ('" + cnic + "', '" + name + "', '" + fathername + "', '" + phone + "',"
+                    + " '" + department + "', '" + session + "','" + semester + "')";
 
-//String insertQuery = "INSERT INTO Student "
-//                    + "(S_ID, Student_Name, Student_F_Name, Student_Phone, Student_Dept, Session, Semester)"
-//                    + " VALUES ('"+cnic+"', '"+name+"', '"+fathername+"', '"+phone+"', '"+department+"', '"+session+"','"+semester+"')";
             String query = "INSERT INTO Student"
-                    + "VALUES('" + cnic + "', '" + name + "', '" + fathername + "', '" + phone + "', '" + department + "', '" + session + "','" + semester + "')";
-            //   PreparedStatement statement = con.prepareStatement(insertQuery);
+                    + "VALUES('" + cnic + "', '" + name + "', '" + fathername + "', '" + phone + "', '" + department + "',"
+                    + " '" + session + "','" + semester + "')";
+            PreparedStatement ps = con.prepareStatement(query);
 
-            statement.executeQuery(query);
-            //   statement.execute();
+//            statement.executeQuery(query);
+            ps.execute();
             JOptionPane.showMessageDialog(null, "added  sucessfully...");
             //  setVisible(false);
             //  new Add_Student().setVisible(true);
