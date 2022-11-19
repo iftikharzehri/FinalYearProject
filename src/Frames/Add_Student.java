@@ -4,12 +4,9 @@
  */
 package Frames;
 
-import LMS.ConnectionProvider;
 import java.sql.*;
-import java.sql.Statement;
 import javax.swing.*;
 import java.sql.Connection;
-import java.sql.ConnectionBuilder;
 
 /**
  *
@@ -94,6 +91,11 @@ public class Add_Student extends javax.swing.JFrame {
         savebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 savebtnActionPerformed(evt);
+            }
+        });
+        savebtn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                savebtnKeyPressed(evt);
             }
         });
 
@@ -212,17 +214,25 @@ public class Add_Student extends javax.swing.JFrame {
         String session = sessionTXT.getText().trim();
         String semester = (String) semesterCombo.getSelectedItem();
         try {
-            Connection con = (Connection) ConnectionProvider.getCon();
+            Connection con = (Connection) LMS.ConnectionProvider.getCon();
 //            Statement statement = con.createStatement();
-            String insertQuery = "INSERT INTO Student "
-                    + "(S_ID, Student_Name, Student_F_Name, Student_Phone, Student_Dept, Session, Semester)"
-                    + " VALUES ('" + cnic + "', '" + name + "', '" + fathername + "', '" + phone + "',"
-                    + " '" + department + "', '" + session + "','" + semester + "')";
-
+//            String insertQuery = "INSERT INTO Student "
+//                    + "(S_ID, Student_Name, Student_F_Name, Student_Phone, Student_Dept, Session, Semester)"
+//                    + " VALUES ('" + cnic + "', '" + name + "', '" + fathername + "', '" + phone + "',"
+//                    + " '" + department + "', '" + session + "','" + semester + "')";
+            String insertQuery = "INSERT INTO Student (S_ID, Student_Name, Student_F_Name, Student_Phone, Student_Dept, Session, Semester) "
+                    + "VALUES (?,?,?,?,?,?,?)";
             String query = "INSERT INTO Student"
                     + "VALUES('" + cnic + "', '" + name + "', '" + fathername + "', '" + phone + "', '" + department + "',"
                     + " '" + session + "','" + semester + "')";
-            PreparedStatement ps = con.prepareStatement(query);
+            PreparedStatement ps = con.prepareStatement(insertQuery.toString());
+            ps.setString(1, cnic);
+            ps.setString(2, name);
+            ps.setString(3, fathername);
+            ps.setString(4, phone);
+            ps.setString(5, department);
+            ps.setString(6, session);
+            ps.setString(7, semester);
 
 //            statement.executeQuery(query);
             ps.execute();
@@ -249,6 +259,11 @@ public class Add_Student extends javax.swing.JFrame {
     private void semesterComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semesterComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_semesterComboActionPerformed
+
+    private void savebtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_savebtnKeyPressed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_savebtnKeyPressed
 
     /**
      * @param args the command line arguments
