@@ -45,29 +45,31 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="nameTXT" min="-2" pref="439" max="-2" attributes="0"/>
-                              <Component id="nicTXT" min="-2" pref="439" max="-2" attributes="0"/>
-                              <Component id="fatherTXT1" alignment="0" min="-2" pref="439" max="-2" attributes="0"/>
-                              <Component id="phoneTXT" alignment="0" min="-2" pref="439" max="-2" attributes="0"/>
-                              <Component id="deptCombo" alignment="0" min="-2" pref="439" max="-2" attributes="0"/>
-                              <Component id="sessionTXT" alignment="0" min="-2" pref="439" max="-2" attributes="0"/>
-                              <Component id="semesterCombo" alignment="0" min="-2" pref="439" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="savebtn" min="-2" pref="163" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="closebtn" min="-2" pref="163" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="savebtn" min="-2" pref="143" max="-2" attributes="0"/>
+                                  <EmptySpace pref="146" max="32767" attributes="0"/>
+                                  <Component id="closebtn" min="-2" pref="144" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="sessionTXT" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="deptCombo" alignment="0" pref="433" max="32767" attributes="0"/>
+                                  <Component id="phoneTXT" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fatherTXT1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="nameTXT" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="nicTXT" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="semesterCombo" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="18" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
