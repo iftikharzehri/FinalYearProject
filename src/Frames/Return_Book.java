@@ -35,6 +35,7 @@ public class Return_Book extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Return A Book");
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -45,6 +46,11 @@ public class Return_Book extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(250, 148, 148));
         jButton5.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LibraryManagementSystem/src/Image/cross.png")); // NOI18N
         jButton5.setText("Close");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jTextField3.setBackground(new java.awt.Color(0, 204, 204));
         jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "STUDENT ID", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
@@ -106,7 +112,7 @@ public class Return_Book extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -116,6 +122,10 @@ public class Return_Book extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        dispose();        
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,7 +158,7 @@ public class Return_Book extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Return_Book().setVisible(true);
-                
+
             }
         });
     }

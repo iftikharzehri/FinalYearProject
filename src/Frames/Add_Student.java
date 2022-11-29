@@ -43,6 +43,7 @@ public class Add_Student extends javax.swing.JFrame {
         semesterCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -144,14 +145,13 @@ public class Add_Student extends javax.swing.JFrame {
                                 .addComponent(savebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                                 .addComponent(closebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(sessionTXT, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(deptCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, 433, Short.MAX_VALUE)
-                                .addComponent(phoneTXT, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(fatherTXT1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nameTXT, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nicTXT, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(semesterCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(sessionTXT)
+                            .addComponent(deptCombo, 0, 433, Short.MAX_VALUE)
+                            .addComponent(phoneTXT)
+                            .addComponent(fatherTXT1)
+                            .addComponent(nameTXT)
+                            .addComponent(nicTXT)
+                            .addComponent(semesterCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -188,7 +188,7 @@ public class Add_Student extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
