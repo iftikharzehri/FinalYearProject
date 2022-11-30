@@ -50,11 +50,11 @@ public class Add_Student extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/student.png")); // NOI18N
 
         nameTXT.setBackground(new java.awt.Color(0, 204, 204));
-        nameTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        nameTXT.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         nameTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "NAME", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         phoneTXT.setBackground(new java.awt.Color(0, 204, 204));
-        phoneTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        phoneTXT.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         phoneTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PHONE NO.", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         phoneTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,11 +63,11 @@ public class Add_Student extends javax.swing.JFrame {
         });
 
         nicTXT.setBackground(new java.awt.Color(0, 204, 204));
-        nicTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        nicTXT.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         nicTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CNIC", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         sessionTXT.setBackground(new java.awt.Color(0, 204, 204));
-        sessionTXT.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        sessionTXT.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         sessionTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SESSION", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         sessionTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +76,7 @@ public class Add_Student extends javax.swing.JFrame {
         });
 
         deptCombo.setBackground(new java.awt.Color(0, 204, 204));
-        deptCombo.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        deptCombo.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         deptCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NULL", "CS", "LLB", "BBA" }));
         deptCombo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DEPARTMENT", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         deptCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +86,7 @@ public class Add_Student extends javax.swing.JFrame {
         });
 
         savebtn.setBackground(new java.awt.Color(153, 255, 153));
+        savebtn.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         savebtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/save.png")); // NOI18N
         savebtn.setText("SAVE");
         savebtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -101,6 +102,7 @@ public class Add_Student extends javax.swing.JFrame {
         });
 
         closebtn.setBackground(new java.awt.Color(250, 148, 148));
+        closebtn.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         closebtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/cross.png")); // NOI18N
         closebtn.setText("CLOSE");
         closebtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -111,7 +113,7 @@ public class Add_Student extends javax.swing.JFrame {
         });
 
         fatherTXT1.setBackground(new java.awt.Color(0, 204, 204));
-        fatherTXT1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        fatherTXT1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         fatherTXT1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "FATHER NAME", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         fatherTXT1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +122,7 @@ public class Add_Student extends javax.swing.JFrame {
         });
 
         semesterCombo.setBackground(new java.awt.Color(0, 204, 204));
-        semesterCombo.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        semesterCombo.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         semesterCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         semesterCombo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SEMESTER", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         semesterCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +179,7 @@ public class Add_Student extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(savebtn)
                     .addComponent(closebtn))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

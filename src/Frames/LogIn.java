@@ -48,6 +48,7 @@ public class LogIn extends javax.swing.JFrame {
         jLabel1.setText("WELCOME");
 
         jButton1.setBackground(new java.awt.Color(153, 255, 153));
+        jButton1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/login.png")); // NOI18N
         jButton1.setText("   Login");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -56,9 +57,14 @@ public class LogIn extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
 
         userNTxt.setBackground(new java.awt.Color(0, 204, 204));
-        userNTxt.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        userNTxt.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         userNTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         userNTxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USERNAME", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         userNTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +74,7 @@ public class LogIn extends javax.swing.JFrame {
         });
 
         passTxt.setBackground(new java.awt.Color(0, 204, 204));
-        passTxt.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        passTxt.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         passTxt.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         passTxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PASSWORD", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
         passTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -154,6 +160,10 @@ public class LogIn extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+new Home().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments

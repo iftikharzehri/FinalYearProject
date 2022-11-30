@@ -57,6 +57,7 @@ public class Issue_Book extends javax.swing.JFrame {
         ReturnDateP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Due Date", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         issueBTN.setBackground(new java.awt.Color(153, 255, 153));
+        issueBTN.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         issueBTN.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/tick.png")); // NOI18N
         issueBTN.setText("Issue");
         issueBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +67,7 @@ public class Issue_Book extends javax.swing.JFrame {
         });
 
         CloseBtn.setBackground(new java.awt.Color(250, 148, 148));
+        CloseBtn.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         CloseBtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/cross.png")); // NOI18N
         CloseBtn.setText("Close");
         CloseBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +83,7 @@ public class Issue_Book extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 23, Short.MAX_VALUE)
+                .addGap(0, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(issueBTN)
@@ -92,7 +94,7 @@ public class Issue_Book extends javax.swing.JFrame {
                         .addComponent(BookIdTxt)
                         .addComponent(issueDateP, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                         .addComponent(ReturnDateP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(177, 177, 177)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)

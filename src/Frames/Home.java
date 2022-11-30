@@ -57,6 +57,7 @@ public class Home extends javax.swing.JFrame {
         jLabel3.setText("LIBRARY MANAGEMENT SYSTEM");
 
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
+        jButton1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/student.png")); // NOI18N
         jButton1.setText("ADD A STUDENT");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -67,6 +68,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(0, 204, 204));
+        jButton2.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/add_book.png")); // NOI18N
         jButton2.setText("ADD A BOOK");
         jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -77,6 +79,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(0, 204, 204));
+        jButton3.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/issue.png")); // NOI18N
         jButton3.setText("ISSUE A BOOK");
         jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -87,6 +90,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton4.setBackground(new java.awt.Color(0, 204, 204));
+        jButton4.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/statistics3.png")); // NOI18N
         jButton4.setText("STATES");
         jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -107,6 +111,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton7.setBackground(new java.awt.Color(0, 204, 204));
+        jButton7.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton7.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LibraryManagementSystem/src/Image/return.png")); // NOI18N
         jButton7.setText("Return a Book");
         jButton7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -159,12 +164,11 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(170, 170, 170)
                         .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
                         .addComponent(jButton5))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -174,7 +178,7 @@ public class Home extends javax.swing.JFrame {
                             .addGap(196, 196, 196)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jButton7)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

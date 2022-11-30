@@ -10,6 +10,7 @@ import java.sql.Statement;
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ConnectionBuilder;
+
 /**
  *
  * @author ifti
@@ -43,7 +44,6 @@ public class Add_Book extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add a Book");
         setAlwaysOnTop(true);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -62,6 +62,7 @@ public class Add_Book extends javax.swing.JFrame {
         });
 
         saveBtn.setBackground(new java.awt.Color(153, 255, 153));
+        saveBtn.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         saveBtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/save.png")); // NOI18N
         saveBtn.setText(" Save    ");
         saveBtn.setBorder(null);
@@ -72,6 +73,7 @@ public class Add_Book extends javax.swing.JFrame {
         });
 
         closeBtn.setBackground(new java.awt.Color(250, 148, 148));
+        closeBtn.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         closeBtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/cross.png")); // NOI18N
         closeBtn.setText(" Close    ");
         closeBtn.setBorder(null);
@@ -132,9 +134,7 @@ public class Add_Book extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -158,15 +158,16 @@ public class Add_Book extends javax.swing.JFrame {
         try {
             Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
-            String Query="INSERT INTO Book VALUES('"+bookID+"','"+name+"','"+arthor+"')";
+            String Query = "INSERT INTO Book VALUES('" + bookID + "','" + name + "','" + arthor + "')";
             statement.executeUpdate(Query);
-            JOptionPane.showMessageDialog(null,"Book added sucessfully...");
+            JOptionPane.showMessageDialog(null, "Book added sucessfully...");
             setVisible(false);
             new Add_Book().setVisible(true);
- 
+
         } catch (Exception e) {
-        JOptionPane.showMessageDialog(null,e.getMessage());
-        
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e);
+            e.printStackTrace();
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 

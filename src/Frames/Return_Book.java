@@ -40,10 +40,12 @@ public class Return_Book extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
         jButton4.setBackground(new java.awt.Color(153, 255, 153));
+        jButton4.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LibraryManagementSystem/src/Image/save.png")); // NOI18N
         jButton4.setText("Save");
 
         jButton5.setBackground(new java.awt.Color(250, 148, 148));
+        jButton5.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LibraryManagementSystem/src/Image/cross.png")); // NOI18N
         jButton5.setText("Close");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
