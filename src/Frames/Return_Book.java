@@ -35,7 +35,7 @@ public class Return_Book extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Return A Book");
-        setUndecorated(true);
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -118,7 +118,6 @@ public class Return_Book extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed

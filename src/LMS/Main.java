@@ -5,14 +5,17 @@
 package LMS;
 
 import Frames.LogIn;
+import static LMS.ConnectionProvider.getCon;
+import com.sun.jdi.connect.spi.Connection;
 
 /**
  *
  * @author ifti
  */
 public class Main {
+
     public static void main(String[] args) {
-        new LogIn().setVisible(true);
-        
+//        new LogIn().setVisible(true);
+        Connection con = getCon();
     }
 }

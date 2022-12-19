@@ -43,7 +43,7 @@ public class Add_Book extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add a Book");
-        setAlwaysOnTop(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -158,8 +158,17 @@ public class Add_Book extends javax.swing.JFrame {
         try {
             Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
-            String Query = "INSERT INTO Book VALUES('" + bookID + "','" + name + "','" + arthor + "')";
-            statement.executeUpdate(Query);
+        
+            String Query = "insert into Book (B_ID, Title, Author) values (?,?,?)";
+            PreparedStatement ps = con.prepareStatement(Query);
+            ps.setString(1, bookID);
+            ps.setString(2, name);
+            ps.setString(3, arthor);
+
+            ps.execute();
+            
+            
+//            statement.executeUpdate(Query);
             JOptionPane.showMessageDialog(null, "Book added sucessfully...");
             setVisible(false);
             new Add_Book().setVisible(true);

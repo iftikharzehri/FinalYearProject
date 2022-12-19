@@ -43,7 +43,8 @@ public class Add_Student extends javax.swing.JFrame {
         semesterCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setUndecorated(true);
+        setTitle("Add a Student");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -194,6 +195,7 @@ public class Add_Student extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void phoneTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTXTActionPerformed

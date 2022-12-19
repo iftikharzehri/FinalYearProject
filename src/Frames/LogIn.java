@@ -150,19 +150,19 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_userNTxtActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
-        if(userNTxt.getText().trim().toLowerCase().equals("admin")&& passTxt.getText().toLowerCase().trim().equals("admin")){
-            
+
+        if (userNTxt.getText().trim().toLowerCase().equals("admin") && passTxt.getText().toLowerCase().trim().equals("admin")) {
+
             setVisible(false);
             new Home().setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Invalid User name or Password ");
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-new Home().setVisible(true);        // TODO add your handling code here:
+//        new Home().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1KeyPressed
 
     /**

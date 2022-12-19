@@ -26,123 +26,25 @@ public class Issue_Book extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        stdIdTxt = new javax.swing.JTextField();
-        BookIdTxt = new javax.swing.JTextField();
-        issueDateP = new com.toedter.calendar.JDateChooser();
-        ReturnDateP = new com.toedter.calendar.JDateChooser();
-        issueBTN = new javax.swing.JButton();
-        CloseBtn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Issue a Book");
         setAlwaysOnTop(true);
-        setUndecorated(true);
         setResizable(false);
-
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-
-        stdIdTxt.setEditable(false);
-        stdIdTxt.setBackground(new java.awt.Color(0, 204, 204));
-        stdIdTxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Student ID", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-
-        BookIdTxt.setBackground(new java.awt.Color(0, 204, 204));
-        BookIdTxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book ID", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-
-        issueDateP.setBackground(new java.awt.Color(0, 204, 204));
-        issueDateP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Issue Date", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-
-        ReturnDateP.setBackground(new java.awt.Color(0, 204, 204));
-        ReturnDateP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Due Date", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-
-        issueBTN.setBackground(new java.awt.Color(153, 255, 153));
-        issueBTN.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        issueBTN.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/tick.png")); // NOI18N
-        issueBTN.setText("Issue");
-        issueBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                issueBTNActionPerformed(evt);
-            }
-        });
-
-        CloseBtn.setBackground(new java.awt.Color(250, 148, 148));
-        CloseBtn.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        CloseBtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/cross.png")); // NOI18N
-        CloseBtn.setText("Close");
-        CloseBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CloseBtnActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LibraryManagementSystem/src/Image/giving_a_book-removebg-preview.png")); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(issueBTN)
-                        .addGap(163, 163, 163)
-                        .addComponent(CloseBtn))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(stdIdTxt)
-                        .addComponent(BookIdTxt)
-                        .addComponent(issueDateP, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
-                        .addComponent(ReturnDateP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(24, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(stdIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BookIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(issueDateP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(ReturnDateP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(issueBTN)
-                    .addComponent(CloseBtn))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 439, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void CloseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBtnActionPerformed
-        dispose();
-    }//GEN-LAST:event_CloseBtnActionPerformed
-
-    private void issueBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issueBTNActionPerformed
-
-
-         
-    }//GEN-LAST:event_issueBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,13 +82,5 @@ public class Issue_Book extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField BookIdTxt;
-    private javax.swing.JButton CloseBtn;
-    private com.toedter.calendar.JDateChooser ReturnDateP;
-    private javax.swing.JButton issueBTN;
-    private com.toedter.calendar.JDateChooser issueDateP;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField stdIdTxt;
     // End of variables declaration//GEN-END:variables
 }
