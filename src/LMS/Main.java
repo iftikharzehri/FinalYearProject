@@ -4,9 +4,15 @@
  */
 package LMS;
 
-import Frames.LogIn;
+import javax.swing.JFrame;
+
 import static LMS.ConnectionProvider.getCon;
+
 import com.sun.jdi.connect.spi.Connection;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 /**
  *
@@ -16,6 +22,11 @@ public class Main {
 
     public static void main(String[] args) {
 //        new LogIn().setVisible(true);
-        Connection con = getCon();
+//        Connection con = getCon();
+
     }
+    
+    
+    
+
 }
