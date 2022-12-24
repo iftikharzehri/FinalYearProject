@@ -7,9 +7,12 @@ package Frames;
 import LMS.ConnectionProvider;
 import java.beans.Statement;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import javax.swing.table.DefaultTableModel;
+import java.sql.PreparedStatement;
+import java.util.*;
 
 /**
  *
@@ -49,22 +52,25 @@ public class Status extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel1.setText("Issued Books");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 25, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel2.setText("Returned Books");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 371, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(250, 148, 148));
         jButton1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LMS/src/Image/cross.png")); // NOI18N
         jButton1.setText("Close");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 719, 157, -1));
 
         issuedTblScroll.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -75,65 +81,20 @@ public class Status extends javax.swing.JFrame {
         issueTbl.setBackground(new java.awt.Color(0, 204, 204));
         issuedTblScroll.setViewportView(issueTbl);
 
+        jPanel1.add(issuedTblScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 65, 1060, 270));
+
         returnedTbl.setBackground(new java.awt.Color(0, 204, 204));
         returnedTblScroll.setViewportView(returnedTbl);
 
-        issuedRefreshBtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LibraryManagementSystem/src/Image/refresh1.png")); // NOI18N
+        jPanel1.add(returnedTblScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 411, 1060, 270));
+
         issuedRefreshBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 issuedRefreshBtnActionPerformed(evt);
             }
         });
-
-        returnedrefreshBtn.setIcon(new javax.swing.ImageIcon("/home/ifti/NetBeansProjects/LibraryManagementSystem/src/Image/refresh1.png")); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(returnedTblScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
-                    .addComponent(issuedTblScroll))
-                .addGap(31, 31, 31))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(issuedRefreshBtn)
-                .addGap(340, 340, 340)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(returnedrefreshBtn)
-                        .addGap(343, 343, 343)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(459, 459, 459)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(issuedRefreshBtn))
-                .addGap(18, 18, 18)
-                .addComponent(issuedTblScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(returnedrefreshBtn))
-                .addGap(18, 18, 18)
-                .addComponent(returnedTblScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(30, 30, 30))
-        );
+        jPanel1.add(issuedRefreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 39, -1, -1));
+        jPanel1.add(returnedrefreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 371, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,16 +117,42 @@ dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void issuedTblScrollKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_issuedTblScrollKeyPressed
-        // TODO add your handling code here:
+//        try {
+//               String user = "iftidev";
+//            String password = "balochistan";
+//            String url = "jdbc:mysql://localhost:3306/LMS";
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+//
+////            Connection con = (Connection) ConnectionProvider.getCon();
+//          //  java.sql.Statement statement = (java.sql.Statement) con.createStatement();
+//            
+//PreparedStatement statement = con.prepareStatement("SELECT * FROM STUDENT");
+//				
+//ResultSet rs = statement.executeQuery();
+//				
+//displayTable.setModel(DbUtils.resultSetToTableModel(rs));
+//            
+//        } catch (Exception e) {
+//        }
+//  
+
     }//GEN-LAST:event_issuedTblScrollKeyPressed
 
     private void issuedRefreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuedRefreshBtnActionPerformed
 
         try {
+   String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection con = (Connection) ConnectionProvider.getCon();
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+
+//            Connection con = (Connection) ConnectionProvider.getCon();
             Statement st = (Statement) con.createStatement();
-            String sql = " ";
+            String sql = "select * from BOOK ";
 
             ResultSet rs = null;
             st.execute();
@@ -185,7 +172,7 @@ dispose();
                 first = rs.getString(2);
                 last = rs.getString(3);
                 age = rs.getString(4);
-                String[] row = {"id", "first", "last", "age"};
+                String[] row = {"id", "name", "author", "department"};
                 model.addRow(row);
             }
 
