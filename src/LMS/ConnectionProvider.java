@@ -21,10 +21,10 @@ public class ConnectionProvider {
             String url = "jdbc:mysql://localhost:3306/LMS";
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            java.sql.Connection connection = DriverManager.getConnection(url, user, password);
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
 
-            if (connection != null) {
-                System.out.println("connected sucessfully..." + connection.getCatalog());
+            if (con != null) {
+                System.out.println("connected sucessfully..." + con.getCatalog());
                 System.out.println("output from connectionprovider class");
             } else {
                 System.out.println("fail...");

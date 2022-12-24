@@ -4,15 +4,12 @@
  */
 package LMS;
 
-import javax.swing.JFrame;
 
+import Frames.Add_Book;
+import Frames.LogIn;
 import static LMS.ConnectionProvider.getCon;
 
 import com.sun.jdi.connect.spi.Connection;
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
 
 /**
  *
@@ -21,9 +18,9 @@ import javax.swing.JButton;
 public class Main {
 
     public static void main(String[] args) {
-//        new LogIn().setVisible(true);
+        new LogIn().setVisible(true);
 //        Connection con = getCon();
-
+//new Add_Book().setVisible(true);
     }
     
     

@@ -156,16 +156,18 @@ public class Add_Book extends javax.swing.JFrame {
         String name = nameTXT.getText().trim();
         String arthor = arthorTXT.getText().trim();
         try {
-            Connection con = (Connection) ConnectionProvider.getCon();
-            Statement statement = (Statement) con.createStatement();
-        
-            String Query = "insert into Book (B_ID, Title, Author) values (?,?,?)";
-            PreparedStatement ps = con.prepareStatement(Query);
-            ps.setString(1, bookID);
-            ps.setString(2, name);
-            ps.setString(3, arthor);
+              String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-            ps.execute();
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+
+//            Connection con = (Connection) ConnectionProvider.getCon();
+            Statement statement = (Statement) con.createStatement();
+        String test = "INSERT INTO `LMS`.`BOOK` (`BOOK_ID`, `B_TITLE`, `B_AUTHOR`, `B_DEPT`) VALUES ('"+bookID+"', '"+name+"', '"+arthor+"', 'bba');";
+           
+            statement.execute(test);
             
             
 //            statement.executeUpdate(Query);
