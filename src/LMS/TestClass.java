@@ -4,6 +4,8 @@
  */
 package LMS;
 
+import java.beans.Statement;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -12,6 +14,9 @@ import java.sql.ResultSet;
  * @author ifti-baloch
  */
 public class TestClass {
+
+
+
 //      String query = "INSERT INTO STUDENT "
 //                    + "VALUES ('3', 'KAMRAN', 'AZIZ', '909889', '2019', '3', '1')";
 //            PreparedStatement ps = connection.prepareStatement(query);
