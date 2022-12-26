@@ -4,13 +4,10 @@
  */
 package Frames;
 
-import LMS.ConnectionProvider;
 import java.sql.*;
 import java.sql.Statement;
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.ConnectionBuilder;
-
+ 
 /**
  *
  * @author ifti

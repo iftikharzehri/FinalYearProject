@@ -13,6 +13,14 @@ import java.sql.ResultSetMetaData;
 import javax.swing.table.DefaultTableModel;
 import java.sql.PreparedStatement;
 import java.util.*;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
+import java.sql.*;
+import java.sql.DriverManager;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
 
 /**
  *
@@ -25,6 +33,29 @@ public class Status extends javax.swing.JFrame {
      */
     public Status() {
         initComponents();
+         try {
+
+            String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+
+            java.sql.Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT issue_book.*, LMS.STUDENT.S_ID, LMS.STUDENT.S_NAME "
+                    + "FROM LMS.issue_book "
+                    + "JOIN LMS.STUDENT ON LMS.issue_book.student_id = LMS.STUDENT.S_ID;");
+            issueTable.setModel(DbUtils.resultSetToTableModel(rs));
+            ResultSet rs1 = st.executeQuery("SELECT return_book.*, LMS.STUDENT.S_ID, LMS.STUDENT.S_NAME "
+                    + "FROM LMS.return_book "
+                    + "JOIN LMS.STUDENT ON LMS.return_book.student_id = LMS.STUDENT.S_ID;");
+           returntable.setModel(DbUtils.resultSetToTableModel(rs1));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,e);
+        }
     }
 
     /**
@@ -40,12 +71,10 @@ public class Status extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        issuedTblScroll = new javax.swing.JScrollPane();
-        issueTbl = new javax.swing.JTable();
-        returnedTblScroll = new javax.swing.JScrollPane();
-        returnedTbl = new javax.swing.JTable();
-        issuedRefreshBtn = new javax.swing.JButton();
-        returnedrefreshBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        issueTable = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        returntable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Status");
@@ -72,29 +101,39 @@ public class Status extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 719, 157, -1));
 
-        issuedTblScroll.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                issuedTblScrollKeyPressed(evt);
+        issueTable.setBackground(new java.awt.Color(0, 204, 204));
+        issueTable.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        issueTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
+        ));
+        jScrollPane1.setViewportView(issueTable);
 
-        issueTbl.setBackground(new java.awt.Color(0, 204, 204));
-        issuedTblScroll.setViewportView(issueTbl);
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 990, 280));
 
-        jPanel1.add(issuedTblScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 65, 1060, 270));
-
-        returnedTbl.setBackground(new java.awt.Color(0, 204, 204));
-        returnedTblScroll.setViewportView(returnedTbl);
-
-        jPanel1.add(returnedTblScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 411, 1060, 270));
-
-        issuedRefreshBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                issuedRefreshBtnActionPerformed(evt);
+        returntable.setBackground(new java.awt.Color(0, 204, 204));
+        returntable.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        returntable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-        jPanel1.add(issuedRefreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 39, -1, -1));
-        jPanel1.add(returnedrefreshBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 371, -1, -1));
+        ));
+        jScrollPane2.setViewportView(returntable);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 990, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,73 +154,6 @@ public class Status extends javax.swing.JFrame {
 
 dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void issuedTblScrollKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_issuedTblScrollKeyPressed
-//        try {
-//               String user = "iftidev";
-//            String password = "balochistan";
-//            String url = "jdbc:mysql://localhost:3306/LMS";
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//
-//            java.sql.Connection con = DriverManager.getConnection(url, user, password);
-//
-////            Connection con = (Connection) ConnectionProvider.getCon();
-//          //  java.sql.Statement statement = (java.sql.Statement) con.createStatement();
-//            
-//PreparedStatement statement = con.prepareStatement("SELECT * FROM STUDENT");
-//				
-//ResultSet rs = statement.executeQuery();
-//				
-//displayTable.setModel(DbUtils.resultSetToTableModel(rs));
-//            
-//        } catch (Exception e) {
-//        }
-//  
-
-    }//GEN-LAST:event_issuedTblScrollKeyPressed
-
-    private void issuedRefreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuedRefreshBtnActionPerformed
-
-        try {
-   String user = "iftidev";
-            String password = "balochistan";
-            String url = "jdbc:mysql://localhost:3306/LMS";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            java.sql.Connection con = DriverManager.getConnection(url, user, password);
-
-//            Connection con = (Connection) ConnectionProvider.getCon();
-            Statement st = (Statement) con.createStatement();
-            String sql = "select * from BOOK ";
-
-            ResultSet rs = null;
-            st.execute();
-            ResultSetMetaData rsmd = null;
-            rs.getMetaData();
-            DefaultTableModel model = (DefaultTableModel) issueTbl.getModel();
-            int cols = rsmd.getColumnCount();
-            String[] colName = new String[cols];
-            for (int i = 0; i < cols; i++) {
-                colName[i] = rsmd.getColumnName(i + 1);
-
-            }
-            model.setColumnIdentifiers(colName);
-            String id, first, last, age;
-            while (rs.next()) {
-                id = rs.getString(1);
-                first = rs.getString(2);
-                last = rs.getString(3);
-                age = rs.getString(4);
-                String[] row = {"id", "name", "author", "department"};
-                model.addRow(row);
-            }
-
-            con.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_issuedRefreshBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,15 +192,13 @@ dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable issueTbl;
-    private javax.swing.JButton issuedRefreshBtn;
-    private javax.swing.JScrollPane issuedTblScroll;
+    private javax.swing.JTable issueTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTable returnedTbl;
-    private javax.swing.JScrollPane returnedTblScroll;
-    private javax.swing.JButton returnedrefreshBtn;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable returntable;
     // End of variables declaration//GEN-END:variables
 }

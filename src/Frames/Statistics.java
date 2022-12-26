@@ -66,6 +66,7 @@ public class Statistics extends javax.swing.JFrame {
             }
         });
 
+        tesTable.setBackground(new java.awt.Color(0, 204, 204));
         tesTable.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 tesTableComponentShown(evt);
@@ -178,9 +179,6 @@ public class Statistics extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable StudentTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable2;
     private javax.swing.JScrollPane tesTable;
