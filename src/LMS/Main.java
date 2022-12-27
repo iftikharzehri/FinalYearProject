@@ -5,11 +5,7 @@
 package LMS;
 
 
-import Frames.Add_Book;
 import Frames.LogIn;
-import static LMS.ConnectionProvider.getCon;
-
-import com.sun.jdi.connect.spi.Connection;
 
 /**
  *
