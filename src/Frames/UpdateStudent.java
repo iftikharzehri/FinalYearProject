@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author ifti-baloch
  */
-public class updateTest extends javax.swing.JFrame {
+public class UpdateStudent extends javax.swing.JFrame {
 
     /**
      * Creates new form updateTest
      */
-    public updateTest() {
+    public UpdateStudent() {
         initComponents();
     }
 
@@ -49,7 +49,7 @@ public class updateTest extends javax.swing.JFrame {
             }
         });
 
-        deleteBtn.setText("delete");
+        deleteBtn.setText("cancel");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBtnActionPerformed(evt);
@@ -164,7 +164,7 @@ public class updateTest extends javax.swing.JFrame {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
 
-        new delete_Student().setVisible(true);
+    setVisible(false);
 
     }//GEN-LAST:event_deleteBtnActionPerformed
 
@@ -185,20 +185,21 @@ public class updateTest extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(updateTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(updateTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(updateTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(updateTest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new updateTest().setVisible(true);
+                new UpdateStudent().setVisible(true);
             }
         });
     }
