@@ -150,7 +150,7 @@ public class Add_Student extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-    String cnic = cnicTxt.getText();
+        String cnic = cnicTxt.getText();
         String name = nameTxt.getText();
         String fatherName = fatherNameTxt.getText();
         String contact = contactTxt.getText();
@@ -158,7 +158,7 @@ public class Add_Student extends javax.swing.JFrame {
         String session = sessionTxt.getText();
         String semester = (String) semesterComBox.getSelectedItem();
         try {
-               String user = "iftidev";
+            String user = "iftidev";
             String password = "balochistan";
             String url = "jdbc:mysql://localhost:3306/LMS";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -167,26 +167,24 @@ public class Add_Student extends javax.swing.JFrame {
 
 //            Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
-        String test = "INSERT INTO `LMS`.`STUDENT` "
-                + " VALUES ('"+cnic+"', '"+name+"', '"+fatherName+"', '"+contact+"',"
-                + " '"+ session+"', '"+ semester+"', '"+department +"')";
-           
-            statement.execute(test);
-            
-             JOptionPane.showMessageDialog(null, "Student added sucessfully...");
+            String insert = "INSERT INTO `LMS`.`STUDENT` "
+                    + " VALUES ('" + cnic + "', '" + name + "', '" + fatherName + "', '" + contact + "',"
+                    + " '" + session + "', '" + semester + "', '" + department + "')";
+
+            statement.execute(insert);
+            JOptionPane.showMessageDialog(null,"Student added successfully!");
+
             setVisible(false);
             new Add_Student().setVisible(true);
 
         } catch (Exception e) {
-         JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
             System.out.println(e);
             e.printStackTrace();
-        
+
         }
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_saveBtnActionPerformed
 
     /**

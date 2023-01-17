@@ -151,7 +151,8 @@ public class LogIn extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (userNTxt.getText().trim().toLowerCase().equals("admin") && passTxt.getText().toLowerCase().trim().equals("admin")) {
+        if (userNTxt.getText().trim().toLowerCase().equals("admin") 
+                && passTxt.getText().toLowerCase().trim().equals("admin")) {
 
             setVisible(false);
             new Home().setVisible(true);

@@ -6,6 +6,7 @@ package Frames;
 
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 
 /**
  *
@@ -47,6 +48,11 @@ public class Issue_Book extends javax.swing.JFrame {
         });
 
         jButton2.setText("close");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,10 +90,11 @@ public class Issue_Book extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    String stu_id= student_idtxt.getText();
-    String bookId= book_idtxt.getText();
- try {
-             String user = "iftidev";
+        String stu_id = student_idtxt.getText();
+        String bookId = book_idtxt.getText();
+        String status = "No";
+        try {
+            String user = "iftidev";
             String password = "balochistan";
             String url = "jdbc:mysql://localhost:3306/LMS";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -95,16 +102,39 @@ public class Issue_Book extends javax.swing.JFrame {
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
 
             java.sql.Statement st = con.createStatement();
-            String issue = "INSERT INTO issue_book (student_id, book_id, issue_date, return_date) "
-                    + "VALUES ('"+stu_id+"', '"+bookId+"', current_timestamp(), date_add(current_timestamp(), interval 10 day))";
-       st.execute(issue);
-       JOptionPane.showMessageDialog(null,"successfullY issued");
+            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE S_ID = '" + stu_id + "'");
+            if (rs.next()) {
+                ResultSet rs1 = st.executeQuery(" SELECT * FROM LMS.BOOK WHERE BOOK_ID = '" + bookId + "'");
+                if (rs1.next()) {
+                    st.executeUpdate("INSERT INTO issue_book (student_id, book_id, issue_date, return_date, return_status) "
+                            + "VALUES ('" + stu_id + "', '" + bookId + "', current_timestamp(),"
+                            + " date_add(current_timestamp(), interval 10 day), '" + status + "')");
+                    
+//                    JOptionPane.showMessageDialog(null, "issued succssfully!");
+                    setVisible(false);
+                    new Issue_Book().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "book doesnot exist!");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "student does not exist!");
+            }
+
+//            String issue = "INSERT INTO issue_book (student_id, book_id, issue_date, return_date) "
+//                    + "VALUES ('"+stu_id+"', '"+bookId+"', current_timestamp(), date_add(current_timestamp(), interval 10 day), '"+status+"')";
+//       st.execute(issue);
+            JOptionPane.showMessageDialog(null, "successfullY issued");
         } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, e);
+
+            JOptionPane.showMessageDialog(null, "issue failed due to '"+e+"'");
             System.out.println(e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

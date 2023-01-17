@@ -4,6 +4,7 @@
  */
 package Frames;
 
+import java.beans.Statement;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 
@@ -122,16 +123,15 @@ public class Return_Book extends javax.swing.JFrame {
     }//GEN-LAST:event_studentIDtxtActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        dispose();        
+        dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-    String book_ID = bookIDtxt.getText();
+        String book_ID = bookIDtxt.getText();
         String student_ID = studentIDtxt.getText();
-        
-        
+
         try {
-             String user = "iftidev";
+            String user = "iftidev";
             String password = "balochistan";
             String url = "jdbc:mysql://localhost:3306/LMS";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -140,11 +140,16 @@ public class Return_Book extends javax.swing.JFrame {
 
             java.sql.Statement st = con.createStatement();
             String issue = "INSERT INTO return_book (student_id, book_id, return_date) "
-                    + "VALUES ('"+student_ID+"', '"+book_ID+"', current_timestamp())";
-       st.execute(issue);
-       JOptionPane.showMessageDialog(null,"successfullY issued");
+                    + "VALUES ('" + student_ID + "', '" + book_ID + "', current_timestamp())";
+            st.execute(issue);
+
+            java.sql.Statement std = con.createStatement();
+            String delete = "DELETE FROM LMS.issue_book WHERE student_id='" + student_ID + "' and book_id = '" + book_ID + "'";
+            std.execute(delete);
+
+            JOptionPane.showMessageDialog(null, "Book returned successfullY!");
         } catch (Exception e) {
-            
+
             JOptionPane.showMessageDialog(null, e);
             System.out.println(e);
         }

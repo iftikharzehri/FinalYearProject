@@ -158,6 +158,7 @@ public class Add_Book extends javax.swing.JFrame {
         String bookID = idTXT.getText().trim();
         String name = nameTXT.getText().trim();
         String arthor = arthorTXT.getText().trim();
+        String combo = (String)jComboBox2.getSelectedItem();
         try {
               String user = "iftidev";
             String password = "balochistan";
@@ -168,7 +169,7 @@ public class Add_Book extends javax.swing.JFrame {
 
 //            Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
-        String test = "INSERT INTO `LMS`.`BOOK` (`BOOK_ID`, `B_TITLE`, `B_AUTHOR`, `B_DEPT`) VALUES ('"+bookID+"', '"+name+"', '"+arthor+"', 'bba');";
+        String test = "INSERT INTO `LMS`.`BOOK` (`BOOK_ID`, `B_TITLE`, `B_AUTHOR`, `B_DEPT`) VALUES ('"+bookID+"', '"+name+"', '"+arthor+"', '"+combo+"');";
            
             statement.execute(test);
             

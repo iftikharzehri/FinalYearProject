@@ -39,6 +39,7 @@ public class UpdateStudent extends javax.swing.JFrame {
         sessiontxt = new javax.swing.JTextField();
         deptComBox = new javax.swing.JComboBox<>();
         semesterComBox = new javax.swing.JComboBox<>();
+        newIDtxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,23 +57,38 @@ public class UpdateStudent extends javax.swing.JFrame {
             }
         });
 
+        idtxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         idtxt.setText("id");
 
+        nametxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         nametxt.setText("name");
 
+        fnametxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         fnametxt.setText("father");
 
+        contactxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         contactxt.setText("con");
 
         jLabel1.setText("Please fill all the columns correctly");
 
+        sessiontxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         sessiontxt.setText("session");
 
+        deptComBox.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         deptComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS & IT", "BBA", "LAW" }));
         deptComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("department"));
 
+        semesterComBox.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         semesterComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
         semesterComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("semester"));
+
+        newIDtxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        newIDtxt.setText("new id ");
+        newIDtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newIDtxtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,42 +102,47 @@ public class UpdateStudent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(deleteBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 89, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deptComBox, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(deptComBox, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(fnametxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
                                 .addComponent(nametxt)
-                                .addComponent(idtxt)
                                 .addComponent(sessiontxt)
-                                .addComponent(contactxt, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(semesterComBox, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(contactxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addComponent(semesterComBox, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(newIDtxt)))))
                 .addGap(118, 118, 118))
             .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(147, 147, 147)
                 .addComponent(jLabel1)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(newIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(fnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(contactxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(deptComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(sessiontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(semesterComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updateBtn)
                     .addComponent(deleteBtn))
@@ -132,7 +153,8 @@ public class UpdateStudent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        String id = idtxt.getText();
+        String new_id = newIDtxt.getText();
+        String old_id = idtxt.getText();
         String name = nametxt.getText();
         String fName = fnametxt.getText();
         String contact = contactxt.getText();
@@ -148,9 +170,9 @@ public class UpdateStudent extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
-            String update = "UPDATE  LMS.STUDENT SET S_NAME ='" + name + "',"
+            String update = "UPDATE  LMS.STUDENT SET S_ID='"+new_id+"' S_NAME ='" + name + "',"
                     + " F_NAME = '" + fName + "',PHONE_NO='" + contact + "', SESSION='" + session + "', SEMESTER='" + semester + "',"
-                    + "S_DEPT='" + dept + "' WHERE S_ID = '" + id + "'";
+                    + "S_DEPT='" + dept + "' WHERE S_ID = '" + old_id + "'";
             java.sql.Statement st = con.createStatement();
             st.execute(update);
             JOptionPane.showMessageDialog(null, "updated successfully");
@@ -167,6 +189,10 @@ public class UpdateStudent extends javax.swing.JFrame {
     setVisible(false);
 
     }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void newIDtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newIDtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newIDtxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +238,7 @@ public class UpdateStudent extends javax.swing.JFrame {
     private javax.swing.JTextField idtxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nametxt;
+    private javax.swing.JTextField newIDtxt;
     private javax.swing.JComboBox<String> semesterComBox;
     private javax.swing.JTextField sessiontxt;
     private javax.swing.JButton updateBtn;
