@@ -50,6 +50,11 @@ public class Add_Book extends javax.swing.JFrame {
 
         idTXT.setBackground(new java.awt.Color(0, 204, 204));
         idTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book ID", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        idTXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTXTActionPerformed(evt);
+            }
+        });
 
         nameTXT.setBackground(new java.awt.Color(0, 204, 204));
         nameTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book Name", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
@@ -64,6 +69,7 @@ public class Add_Book extends javax.swing.JFrame {
 
         saveBtn.setBackground(new java.awt.Color(153, 255, 153));
         saveBtn.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        saveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/save.png"))); // NOI18N
         saveBtn.setText(" Save    ");
         saveBtn.setBorder(null);
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +80,7 @@ public class Add_Book extends javax.swing.JFrame {
 
         closeBtn.setBackground(new java.awt.Color(250, 148, 148));
         closeBtn.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/cross.png"))); // NOI18N
         closeBtn.setText(" Close    ");
         closeBtn.setBorder(null);
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +120,7 @@ public class Add_Book extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(72, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,6 +193,10 @@ public class Add_Book extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void idTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTXTActionPerformed
 
     /**
      * @param args the command line arguments

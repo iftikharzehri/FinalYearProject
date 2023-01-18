@@ -86,6 +86,8 @@ public class UpdateStudent extends javax.swing.JFrame {
         semesterComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
         semesterComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("semester"));
 
+        deleteBtn.setBackground(new java.awt.Color(250, 148, 148));
+        deleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/cross.png"))); // NOI18N
         deleteBtn.setText("cancel");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +95,8 @@ public class UpdateStudent extends javax.swing.JFrame {
             }
         });
 
+        updateBtn.setBackground(new java.awt.Color(153, 255, 153));
+        updateBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/save.png"))); // NOI18N
         updateBtn.setText("update");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +161,7 @@ public class UpdateStudent extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteBtn)
-                    .addComponent(updateBtn))
+                    .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
         );
 
