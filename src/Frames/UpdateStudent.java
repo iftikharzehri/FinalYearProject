@@ -29,26 +29,62 @@ public class UpdateStudent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        updateBtn = new javax.swing.JButton();
-        deleteBtn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         idtxt = new javax.swing.JTextField();
+        newIDtxt = new javax.swing.JTextField();
         nametxt = new javax.swing.JTextField();
         fnametxt = new javax.swing.JTextField();
         contactxt = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        sessiontxt = new javax.swing.JTextField();
         deptComBox = new javax.swing.JComboBox<>();
+        sessiontxt = new javax.swing.JTextField();
         semesterComBox = new javax.swing.JComboBox<>();
-        newIDtxt = new javax.swing.JTextField();
+        deleteBtn = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        updateBtn.setText("update");
-        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        idtxt.setBackground(new java.awt.Color(0, 204, 204));
+        idtxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        idtxt.setBorder(javax.swing.BorderFactory.createTitledBorder("ID"));
+
+        newIDtxt.setBackground(new java.awt.Color(0, 204, 204));
+        newIDtxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        newIDtxt.setBorder(javax.swing.BorderFactory.createTitledBorder("New ID"));
+        newIDtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateBtnActionPerformed(evt);
+                newIDtxtActionPerformed(evt);
             }
         });
+
+        nametxt.setBackground(new java.awt.Color(0, 204, 204));
+        nametxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        nametxt.setBorder(javax.swing.BorderFactory.createTitledBorder("Name"));
+
+        fnametxt.setBackground(new java.awt.Color(0, 204, 204));
+        fnametxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        fnametxt.setBorder(javax.swing.BorderFactory.createTitledBorder("Father Name"));
+
+        contactxt.setBackground(new java.awt.Color(0, 204, 204));
+        contactxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        contactxt.setBorder(javax.swing.BorderFactory.createTitledBorder("Contact"));
+
+        deptComBox.setBackground(new java.awt.Color(0, 204, 204));
+        deptComBox.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        deptComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS & IT", "BBA", "LAW" }));
+        deptComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("Department"));
+
+        sessiontxt.setBackground(new java.awt.Color(0, 204, 204));
+        sessiontxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        sessiontxt.setBorder(javax.swing.BorderFactory.createTitledBorder("Session"));
+
+        semesterComBox.setBackground(new java.awt.Color(0, 204, 204));
+        semesterComBox.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        semesterComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
+        semesterComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("semester"));
 
         deleteBtn.setText("cancel");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -57,96 +93,83 @@ public class UpdateStudent extends javax.swing.JFrame {
             }
         });
 
-        idtxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        idtxt.setText("id");
-
-        nametxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        nametxt.setText("name");
-
-        fnametxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        fnametxt.setText("father");
-
-        contactxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        contactxt.setText("con");
-
-        jLabel1.setText("Please fill all the columns correctly");
-
-        sessiontxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        sessiontxt.setText("session");
-
-        deptComBox.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        deptComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS & IT", "BBA", "LAW" }));
-        deptComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("department"));
-
-        semesterComBox.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        semesterComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
-        semesterComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("semester"));
-
-        newIDtxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        newIDtxt.setText("new id ");
-        newIDtxt.addActionListener(new java.awt.event.ActionListener() {
+        updateBtn.setText("update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newIDtxtActionPerformed(evt);
+                updateBtnActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        jLabel1.setText("Please fill all the columns correctly");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(updateBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deleteBtn)
+                .addGap(47, 47, 47))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sessiontxt)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(semesterComBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nametxt)
+                    .addComponent(fnametxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(contactxt)
+                    .addComponent(deptComBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(idtxt)
+                    .addComponent(newIDtxt, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addGap(35, 35, 35)
+                .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(contactxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deptComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sessiontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(semesterComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteBtn)
+                    .addComponent(updateBtn))
+                .addGap(31, 31, 31))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(updateBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(deleteBtn))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 89, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(deptComBox, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fnametxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
-                                .addComponent(nametxt)
-                                .addComponent(sessiontxt)
-                                .addComponent(contactxt, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(14, 14, 14)
-                                    .addComponent(semesterComBox, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(newIDtxt)))))
-                .addGap(118, 118, 118))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(newIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(contactxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(deptComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(sessiontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(semesterComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(updateBtn)
-                    .addComponent(deleteBtn))
-                .addGap(16, 16, 16))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -237,6 +260,7 @@ public class UpdateStudent extends javax.swing.JFrame {
     private javax.swing.JTextField fnametxt;
     private javax.swing.JTextField idtxt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nametxt;
     private javax.swing.JTextField newIDtxt;
     private javax.swing.JComboBox<String> semesterComBox;

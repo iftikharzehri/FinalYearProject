@@ -4,18 +4,7 @@
  */
 package Frames;
 
-import java.beans.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import javax.swing.table.DefaultTableModel;
-import java.sql.PreparedStatement;
-import java.util.*;
-import javax.swing.JOptionPane;
-import net.proteanit.sql.DbUtils;
-
-import java.sql.*;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
