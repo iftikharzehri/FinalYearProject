@@ -9,7 +9,6 @@ import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-
 /**
  *
  * @author ifti
@@ -21,7 +20,7 @@ public class Status extends javax.swing.JFrame {
      */
     public Status() {
         initComponents();
-         try {
+        try {
 
             String user = "iftidev";
             String password = "balochistan";
@@ -31,18 +30,51 @@ public class Status extends javax.swing.JFrame {
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
 
             java.sql.Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT issue_book.*, LMS.STUDENT.S_ID, LMS.STUDENT.S_NAME "
-                    + "FROM LMS.issue_book "
-                    + "JOIN LMS.STUDENT ON LMS.issue_book.student_id = LMS.STUDENT.S_ID;");
+//            ResultSet rs = st.executeQuery("select * from STUDENT, ISSUE_BOOK");
+
+//            ResultSet rs = st.executeQuery("SELECT  LMS.ISSUE_BOOK.STU_ID, LMS.STUDENT.`NAME`, LMS.ISSUE_BOOK.BOOK_ID,"
+//                    + "LMS.ISSUE_BOOK.ISSUE_DATE, LMS.ISSUE_BOOK.RETURN_STATUS, LMS.ISSUE_BOOK.RETURN_DATE"
+//                    + "FROM LMS.ISSUE_BOOK INNER JOIN LMS.STUDENT ON LMS.ISSUE_BOOK.STU_ID= LMS.STUDENT.SID ");
+
+
+            ResultSet rs = st.executeQuery("SELECT  LMS.ISSUE_BOOK.STU_ID, "
+                    + "LMS.STUDENT.`NAME`,"
+                    + " LMS.ISSUE_BOOK.BOOK_ID, "
+                    + "LMS.ISSUE_BOOK.ISSUE_DATE, "
+                    + "LMS.ISSUE_BOOK.RETURN_STATUS, "
+                   
+            + " LMS.ISSUE_BOOK.RETURN_DATE "
+                    + " FROM LMS.ISSUE_BOOK JOIN LMS.STUDENT "
+                    + "ON LMS.ISSUE_BOOK.STU_ID = LMS.STUDENT.SID");
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //            ResultSet rs = st.executeQuery("SELECT LMS.ISSUE_BOOK.ISSUE_ID, LMS.ISSUE_BOOK.STU_ID, LMS.ISSUE_BOOK.BOOK_ID,LMS.STUDENT.SID,LMS.STUDENT.`NAME`"
+            //                    + "FROM LMS.ISSUE_BOOK"
+            //                    + "INNER JOIN LMS.STUDENT"
+            //                    + "ON LMS.ISSUE_BOOK.STU_ID= LMS.STUDENT.SID ;");
+            //        ("SELECT issue_id, student_id, book_id, issue_date, return_status"
+            //                    + " FROM LMS.ISSUE_BOOK, LMS.Student.S_id, LMS.Student.name "
+            //                    + "FROM LMS.ISSUE_BOOK "
+            //                    + "JOIN LMS.Student ON LMS.ISSUE_BOOK.student_id = LMS.Student.S_id");
             issueTable.setModel(DbUtils.resultSetToTableModel(rs));
-            ResultSet rs1 = st.executeQuery("SELECT return_book.*, LMS.STUDENT.S_ID, LMS.STUDENT.S_NAME "
-                    + "FROM LMS.return_book "
-                    + "JOIN LMS.STUDENT ON LMS.return_book.student_id = LMS.STUDENT.S_ID;");
-           returntable.setModel(DbUtils.resultSetToTableModel(rs1));
 
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 
@@ -57,12 +89,9 @@ public class Status extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         issueTable = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        returntable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Status");
@@ -72,62 +101,32 @@ public class Status extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        jLabel1.setText("Issued Books");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 25, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        jLabel2.setText("Returned Books");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 371, -1, -1));
+        jLabel1.setText("Book Status");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(250, 148, 148));
         jButton1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jButton1.setText("Close");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 719, 157, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 680, 157, -1));
 
         issueTable.setBackground(new java.awt.Color(0, 204, 204));
-        issueTable.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        issueTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        issueTable.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        issueTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(issueTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 990, 280));
-
-        returntable.setBackground(new java.awt.Color(0, 204, 204));
-        returntable.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        returntable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(returntable);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 990, 270));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1380, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1404, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +139,7 @@ public class Status extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-dispose();
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -183,10 +182,7 @@ dispose();
     private javax.swing.JTable issueTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable returntable;
     // End of variables declaration//GEN-END:variables
 }

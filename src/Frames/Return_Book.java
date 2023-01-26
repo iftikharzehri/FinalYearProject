@@ -139,13 +139,8 @@ public class Return_Book extends javax.swing.JFrame {
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
 
             java.sql.Statement st = con.createStatement();
-            String issue = "INSERT INTO return_book (student_id, book_id, return_date) "
-                    + "VALUES ('" + student_ID + "', '" + book_ID + "', current_timestamp())";
-            st.execute(issue);
 
-            java.sql.Statement std = con.createStatement();
-            String delete = "DELETE FROM LMS.issue_book WHERE student_id='" + student_ID + "' and book_id = '" + book_ID + "'";
-            std.execute(delete);
+            st.execute("UPDATE `LMS`.`ISSUE_BOOK` SET `RETURN_STATUS` = 'YES' WHERE (`BOOK_ID` = '"+book_ID+"' AND STU_ID = '"+student_ID+"')");
 
             JOptionPane.showMessageDialog(null, "Book returned successfullY!");
         } catch (Exception e) {

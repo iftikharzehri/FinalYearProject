@@ -106,7 +106,7 @@ public class StudentList extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
-String deleteQuery ="DELETE FROM LMS.STUDENT WHERE S_ID= '"+DELETE+"'";
+String deleteQuery ="DELETE FROM LMS.STUDENT WHERE SID= '"+DELETE+"'";
             java.sql.Statement st = con.createStatement();
        st.execute(deleteQuery);
             setVisible(false);

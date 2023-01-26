@@ -90,7 +90,7 @@ public class Add_Book extends javax.swing.JFrame {
         });
 
         jComboBox2.setBackground(new java.awt.Color(0, 204, 204));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS & IT", "BBA ", "LAW" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS & IT", "BBA", "LAW" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

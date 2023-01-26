@@ -55,6 +55,7 @@ public class BookList extends javax.swing.JFrame {
         setTitle("Book List");
 
         jTable1.setBackground(new java.awt.Color(0, 204, 204));
+        jTable1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

@@ -143,7 +143,7 @@ public class Search extends javax.swing.JFrame {
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
 
             java.sql.Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE S_ID = '" + searchID + "'");
+            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE SID = '" + searchID + "'");
             jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

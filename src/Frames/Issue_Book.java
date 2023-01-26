@@ -58,7 +58,7 @@ public class Issue_Book extends javax.swing.JFrame {
         book_idtxt.setBorder(javax.swing.BorderFactory.createTitledBorder("Book ID"));
 
         jButton1.setBackground(new java.awt.Color(153, 255, 153));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/newIssue.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/issue_pic.png"))); // NOI18N
         jButton1.setText("issue");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,11 +83,11 @@ public class Issue_Book extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(57, 57, 57)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(58, 58, 58))
+                .addGap(62, 62, 62))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -105,15 +105,15 @@ public class Issue_Book extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(student_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(book_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addGap(89, 89, 89))
+                .addGap(76, 76, 76))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -124,7 +124,7 @@ public class Issue_Book extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -144,13 +144,12 @@ public class Issue_Book extends javax.swing.JFrame {
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
 
             java.sql.Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE S_ID = '" + stu_id + "'");
+            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE SID = '" + stu_id + "'");
             if (rs.next()) {
                 ResultSet rs1 = st.executeQuery(" SELECT * FROM LMS.BOOK WHERE BOOK_ID = '" + bookId + "'");
                 if (rs1.next()) {
-                    st.executeUpdate("INSERT INTO issue_book (student_id, book_id, issue_date, return_date, return_status) "
-                            + "VALUES ('" + stu_id + "', '" + bookId + "', current_timestamp(),"
-                            + " date_add(current_timestamp(), interval 10 day), '" + status + "')");
+                    st.executeUpdate("INSERT INTO `LMS`.`ISSUE_BOOK` ( `STU_ID`, `BOOK_ID`, `ISSUE_DATE`, `RETURN_DATE`, `RETURN_STATUS`) "
+                            + "VALUES ( '"+stu_id+"', '"+bookId+"', current_timestamp(), date_add(current_timestamp(), interval 10 day), '"+status+"');");
                     
 //                    JOptionPane.showMessageDialog(null, "issued succssfully!");
                     setVisible(false);
@@ -166,12 +165,13 @@ public class Issue_Book extends javax.swing.JFrame {
 //            String issue = "INSERT INTO issue_book (student_id, book_id, issue_date, return_date) "
 //                    + "VALUES ('"+stu_id+"', '"+bookId+"', current_timestamp(), date_add(current_timestamp(), interval 10 day), '"+status+"')";
 //       st.execute(issue);
-            JOptionPane.showMessageDialog(null, "successfullY issued");
+//            JOptionPane.showMessageDialog(null, "Issue Failed!");
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null, "issue failed due to '"+e+"'");
             System.out.println(e);
         }
+        JOptionPane.showMessageDialog(null, "issued successfully!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

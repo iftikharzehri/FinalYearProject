@@ -188,7 +188,6 @@ public class UpdateStudent extends javax.swing.JFrame {
         String session = sessiontxt.getText();
         String dept = (String) deptComBox.getSelectedItem();
         String semester = (String) semesterComBox.getSelectedItem();
-     
 
         try {
             String user = "iftidev";
@@ -197,9 +196,8 @@ public class UpdateStudent extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
-            String update = "UPDATE  LMS.STUDENT SET S_ID='"+new_id+"' S_NAME ='" + name + "',"
-                    + " F_NAME = '" + fName + "',PHONE_NO='" + contact + "', SESSION='" + session + "', SEMESTER='" + semester + "',"
-                    + "S_DEPT='" + dept + "' WHERE S_ID = '" + old_id + "'";
+            String update = "UPDATE `LMS`.`STUDENT` SET `NAME` = '"+name+"', `F_NAME` = '"+fName+"', `CONTACT` = '"+contact+"', "
+                    + "`DEPT` = '"+dept+"', `SESSION` = '"+session+"', `SEMESTER` = '"+semester+"' WHERE (`SID` = '"+new_id+"');";
             java.sql.Statement st = con.createStatement();
             st.execute(update);
             JOptionPane.showMessageDialog(null, "updated successfully");
@@ -213,7 +211,7 @@ public class UpdateStudent extends javax.swing.JFrame {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
 
-    setVisible(false);
+        setVisible(false);
 
     }//GEN-LAST:event_deleteBtnActionPerformed
 

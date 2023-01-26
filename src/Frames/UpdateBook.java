@@ -40,6 +40,7 @@ public class UpdateBook extends javax.swing.JFrame {
         closeBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
+        oldIDtxt = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -50,7 +51,7 @@ public class UpdateBook extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         idTXT.setBackground(new java.awt.Color(0, 204, 204));
-        idTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book ID", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        idTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Book ID", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
         nameTXT.setBackground(new java.awt.Color(0, 204, 204));
         nameTXT.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book Name", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
@@ -89,6 +90,9 @@ public class UpdateBook extends javax.swing.JFrame {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS & IT", "BBA ", "LAW" }));
         jComboBox2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Department", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
+        oldIDtxt.setBackground(new java.awt.Color(0, 204, 204));
+        oldIDtxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Old ID", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,14 +116,18 @@ public class UpdateBook extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(closeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(oldIDtxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(86, Short.MAX_VALUE)
+                .addComponent(oldIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,6 +170,7 @@ public class UpdateBook extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+       String oldId = oldIDtxt.getText().trim();
         String bookID = idTXT.getText().trim();
         String name = nameTXT.getText().trim();
         String author = arthorTXT.getText().trim();
@@ -176,8 +185,8 @@ public class UpdateBook extends javax.swing.JFrame {
 
 //            Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
-            String test = "UPDATE  LMS.BOOK SET B_TITLE = '" + name + "', B_AUTHOR='" + author + "', B_DEPT='" + dept + "'"
-                    + " WHERE BOOK_ID = '" + bookID + "'";
+            String test = "UPDATE  LMS.BOOK SET BOOK_ID = '" + bookID + "', B_TITLE = '" + name + "', B_AUTHOR='" + author + "', B_DEPT='" + dept + "'"
+                    + " WHERE BOOK_ID = '" + oldId + "'";
 
             statement.execute(test);
 
@@ -240,6 +249,7 @@ public class UpdateBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTXT;
+    private javax.swing.JTextField oldIDtxt;
     private javax.swing.JButton saveBtn;
     // End of variables declaration//GEN-END:variables
 }

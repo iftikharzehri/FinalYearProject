@@ -47,32 +47,41 @@ public class Add_Student extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         semesterComBox.setBackground(new java.awt.Color(0, 204, 204));
-        semesterComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
+        semesterComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         semesterComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("semester"));
+        jPanel1.add(semesterComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 438, 432, -1));
 
         sessionTxt.setBackground(new java.awt.Color(0, 204, 204));
         sessionTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("session"));
+        jPanel1.add(sessionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 381, 432, -1));
 
         deptComBox.setBackground(new java.awt.Color(0, 204, 204));
-        deptComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        deptComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS & IT", "LAW", "BBA" }));
         deptComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("department"));
+        jPanel1.add(deptComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 318, 432, -1));
 
         contactTxt.setBackground(new java.awt.Color(0, 204, 204));
         contactTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("contact"));
+        jPanel1.add(contactTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 261, 432, -1));
 
         fatherNameTxt.setBackground(new java.awt.Color(0, 204, 204));
         fatherNameTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("father name"));
+        jPanel1.add(fatherNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 204, 432, -1));
 
         nameTxt.setBackground(new java.awt.Color(0, 204, 204));
         nameTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("name"));
+        jPanel1.add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 147, 432, -1));
 
         cnicTxt.setBackground(new java.awt.Color(0, 204, 204));
         cnicTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("cnic"));
+        jPanel1.add(cnicTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 432, -1));
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel1.setText("Add Student");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 22, -1, -1));
 
         saveBtn.setBackground(new java.awt.Color(153, 255, 153));
         saveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/save.png"))); // NOI18N
@@ -82,75 +91,27 @@ public class Add_Student extends javax.swing.JFrame {
                 saveBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 535, -1, -1));
 
         closeBtn.setBackground(new java.awt.Color(250, 148, 148));
         closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/cross.png"))); // NOI18N
         closeBtn.setText("close");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 24, Short.MAX_VALUE)
-                .addComponent(saveBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addComponent(closeBtn)
-                .addGap(43, 43, 43))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nameTxt)
-                            .addComponent(cnicTxt)
-                            .addComponent(fatherNameTxt)
-                            .addComponent(contactTxt)
-                            .addComponent(deptComBox, 0, 432, Short.MAX_VALUE)
-                            .addComponent(sessionTxt)
-                            .addComponent(semesterComBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addGap(40, 40, 40)
-                .addComponent(cnicTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fatherNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deptComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sessionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(semesterComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveBtn)
-                    .addComponent(closeBtn))
-                .addContainerGap(90, Short.MAX_VALUE))
-        );
+        closeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 536, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -176,11 +137,12 @@ public class Add_Student extends javax.swing.JFrame {
 //            Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
             String insert = "INSERT INTO `LMS`.`STUDENT` "
-                    + " VALUES ('" + cnic + "', '" + name + "', '" + fatherName + "', '" + contact + "',"
-                    + " '" + session + "', '" + semester + "', '" + department + "')";
+                    + "(`SID`, `NAME`, `F_NAME`, `CONTACT`, `DEPT`, `SESSION`, `SEMESTER`) "
+                    + "VALUES('" + cnic + "', '" + name + "', '" + fatherName + "', '" + contact + "',"
+                    + " '" + department + "', '" + session + "', '" +  semester+ "')";
 
             statement.execute(insert);
-            JOptionPane.showMessageDialog(null,"Student added successfully!");
+            JOptionPane.showMessageDialog(null, "Student added successfully!");
 
             setVisible(false);
             new Add_Student().setVisible(true);
@@ -194,6 +156,10 @@ public class Add_Student extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
+        dispose();
+    }//GEN-LAST:event_closeBtnActionPerformed
 
     /**
      * @param args the command line arguments
