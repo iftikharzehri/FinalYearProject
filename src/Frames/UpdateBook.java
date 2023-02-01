@@ -41,11 +41,13 @@ public class UpdateBook extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         oldIDtxt = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add a Book");
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
@@ -93,6 +95,13 @@ public class UpdateBook extends javax.swing.JFrame {
         oldIDtxt.setBackground(new java.awt.Color(0, 204, 204));
         oldIDtxt.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Old ID", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
+        jButton1.setText("search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,16 +126,21 @@ public class UpdateBook extends javax.swing.JFrame {
                         .addComponent(closeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldIDtxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(idTXT, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(oldIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(oldIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(oldIDtxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -170,6 +184,10 @@ public class UpdateBook extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+       /**
+         * the given code takes input from user and converts them into string
+         * and updates the entity (book) in book table.
+         */
        String oldId = oldIDtxt.getText().trim();
         String bookID = idTXT.getText().trim();
         String name = nameTXT.getText().trim();
@@ -182,15 +200,10 @@ public class UpdateBook extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
-
-//            Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
             String test = "UPDATE  LMS.BOOK SET BOOK_ID = '" + bookID + "', B_TITLE = '" + name + "', B_AUTHOR='" + author + "', B_DEPT='" + dept + "'"
                     + " WHERE BOOK_ID = '" + oldId + "'";
-
             statement.execute(test);
-
-//            statement.executeUpdate(Query);
             JOptionPane.showMessageDialog(null, "Book updated sucessfully...");
             setVisible(false);
             new UpdateBook().setVisible(true);
@@ -201,6 +214,43 @@ public class UpdateBook extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        /**
+         * this one will takes an input as id and searches that in book table if
+         * id is found then it will fetch the data and show them in text fields
+         * otherwise it will popup a message 'incorrect credentials '.
+         */
+
+        String oldId = oldIDtxt.getText().trim();
+
+        try {
+            String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+
+            Statement statement = (Statement) con.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM LMS.BOOK WHERE BOOK_ID ='" + oldId + "'");
+            if (rs.next()) {
+
+                nameTXT.setText(rs.getString(2));
+                arthorTXT.setText(rs.getString(3));
+                jComboBox2.setSelectedItem(rs.getString(4));
+            } else {
+            }
+            JOptionPane.showMessageDialog(null, "Book Found!");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,6 +294,7 @@ public class UpdateBook extends javax.swing.JFrame {
     private javax.swing.JTextField arthorTXT;
     private javax.swing.JButton closeBtn;
     private javax.swing.JTextField idTXT;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;

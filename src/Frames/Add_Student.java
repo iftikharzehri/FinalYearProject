@@ -44,6 +44,7 @@ public class Add_Student extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add a Student");
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
@@ -52,46 +53,46 @@ public class Add_Student extends javax.swing.JFrame {
         semesterComBox.setBackground(new java.awt.Color(0, 204, 204));
         semesterComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         semesterComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("semester"));
-        jPanel1.add(semesterComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 438, 432, -1));
+        jPanel1.add(semesterComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 434, 54));
 
         sessionTxt.setBackground(new java.awt.Color(0, 204, 204));
         sessionTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("session"));
-        jPanel1.add(sessionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 381, 432, -1));
+        jPanel1.add(sessionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 434, 54));
 
         deptComBox.setBackground(new java.awt.Color(0, 204, 204));
         deptComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS & IT", "LAW", "BBA" }));
         deptComBox.setBorder(javax.swing.BorderFactory.createTitledBorder("department"));
-        jPanel1.add(deptComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 318, 432, -1));
+        jPanel1.add(deptComBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 434, 54));
 
         contactTxt.setBackground(new java.awt.Color(0, 204, 204));
         contactTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("contact"));
-        jPanel1.add(contactTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 261, 432, -1));
+        jPanel1.add(contactTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 434, 54));
 
         fatherNameTxt.setBackground(new java.awt.Color(0, 204, 204));
         fatherNameTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("father name"));
-        jPanel1.add(fatherNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 204, 432, -1));
+        jPanel1.add(fatherNameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 434, 54));
 
         nameTxt.setBackground(new java.awt.Color(0, 204, 204));
         nameTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("name"));
-        jPanel1.add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 147, 432, -1));
+        jPanel1.add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 434, 54));
 
         cnicTxt.setBackground(new java.awt.Color(0, 204, 204));
         cnicTxt.setBorder(javax.swing.BorderFactory.createTitledBorder("cnic"));
-        jPanel1.add(cnicTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 432, -1));
+        jPanel1.add(cnicTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 434, 54));
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel1.setText("Add Student");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 22, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         saveBtn.setBackground(new java.awt.Color(153, 255, 153));
         saveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/save.png"))); // NOI18N
-        saveBtn.setText("save");
+        saveBtn.setText("Save");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 535, -1, -1));
+        jPanel1.add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, -1));
 
         closeBtn.setBackground(new java.awt.Color(250, 148, 148));
         closeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/cross.png"))); // NOI18N
@@ -101,17 +102,17 @@ public class Add_Student extends javax.swing.JFrame {
                 closeBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 536, -1, -1));
+        jPanel1.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 560, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE)
         );
 
         pack();
@@ -134,7 +135,6 @@ public class Add_Student extends javax.swing.JFrame {
 
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
 
-//            Connection con = (Connection) ConnectionProvider.getCon();
             Statement statement = (Statement) con.createStatement();
             String insert = "INSERT INTO `LMS`.`STUDENT` "
                     + "(`SID`, `NAME`, `F_NAME`, `CONTACT`, `DEPT`, `SESSION`, `SEMESTER`) "

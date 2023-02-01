@@ -21,7 +21,10 @@ public class Status extends javax.swing.JFrame {
     public Status() {
         initComponents();
         try {
-
+            /*
+            The given code joins tables student table data (id, name) 
+            with issue_book data (all columns) and prints them in issueTable.
+             */
             String user = "iftidev";
             String password = "balochistan";
             String url = "jdbc:mysql://localhost:3306/LMS";
@@ -30,46 +33,15 @@ public class Status extends javax.swing.JFrame {
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
 
             java.sql.Statement st = con.createStatement();
-//            ResultSet rs = st.executeQuery("select * from STUDENT, ISSUE_BOOK");
-
-//            ResultSet rs = st.executeQuery("SELECT  LMS.ISSUE_BOOK.STU_ID, LMS.STUDENT.`NAME`, LMS.ISSUE_BOOK.BOOK_ID,"
-//                    + "LMS.ISSUE_BOOK.ISSUE_DATE, LMS.ISSUE_BOOK.RETURN_STATUS, LMS.ISSUE_BOOK.RETURN_DATE"
-//                    + "FROM LMS.ISSUE_BOOK INNER JOIN LMS.STUDENT ON LMS.ISSUE_BOOK.STU_ID= LMS.STUDENT.SID ");
-
 
             ResultSet rs = st.executeQuery("SELECT  LMS.ISSUE_BOOK.STU_ID, "
                     + "LMS.STUDENT.`NAME`,"
                     + " LMS.ISSUE_BOOK.BOOK_ID, "
                     + "LMS.ISSUE_BOOK.ISSUE_DATE, "
                     + "LMS.ISSUE_BOOK.RETURN_STATUS, "
-                   
-            + " LMS.ISSUE_BOOK.RETURN_DATE "
+                    + " LMS.ISSUE_BOOK.RETURN_DATE "
                     + " FROM LMS.ISSUE_BOOK JOIN LMS.STUDENT "
                     + "ON LMS.ISSUE_BOOK.STU_ID = LMS.STUDENT.SID");
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            //            ResultSet rs = st.executeQuery("SELECT LMS.ISSUE_BOOK.ISSUE_ID, LMS.ISSUE_BOOK.STU_ID, LMS.ISSUE_BOOK.BOOK_ID,LMS.STUDENT.SID,LMS.STUDENT.`NAME`"
-            //                    + "FROM LMS.ISSUE_BOOK"
-            //                    + "INNER JOIN LMS.STUDENT"
-            //                    + "ON LMS.ISSUE_BOOK.STU_ID= LMS.STUDENT.SID ;");
-            //        ("SELECT issue_id, student_id, book_id, issue_date, return_status"
-            //                    + " FROM LMS.ISSUE_BOOK, LMS.Student.S_id, LMS.Student.name "
-            //                    + "FROM LMS.ISSUE_BOOK "
-            //                    + "JOIN LMS.Student ON LMS.ISSUE_BOOK.student_id = LMS.Student.S_id");
             issueTable.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (Exception e) {
@@ -95,6 +67,7 @@ public class Status extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Status");
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
@@ -120,17 +93,17 @@ public class Status extends javax.swing.JFrame {
         issueTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(issueTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1380, 600));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1400, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1404, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
         );
 
         pack();

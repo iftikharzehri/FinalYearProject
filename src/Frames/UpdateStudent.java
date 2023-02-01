@@ -6,6 +6,7 @@ package Frames;
 
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 
 /**
  *
@@ -41,8 +42,10 @@ public class UpdateStudent extends javax.swing.JFrame {
         deleteBtn = new javax.swing.JButton();
         updateBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        searchBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
@@ -107,6 +110,13 @@ public class UpdateStudent extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
         jLabel1.setText("Please fill all the columns correctly");
 
+        searchBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/search(1).png"))); // NOI18N
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,8 +139,11 @@ public class UpdateStudent extends javax.swing.JFrame {
                     .addComponent(fnametxt, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(contactxt)
                     .addComponent(deptComBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(idtxt)
-                    .addComponent(newIDtxt, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(newIDtxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(idtxt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
@@ -143,8 +156,10 @@ public class UpdateStudent extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel1)
                 .addGap(35, 35, 35)
-                .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(idtxt)
+                    .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
                 .addComponent(newIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,7 +173,7 @@ public class UpdateStudent extends javax.swing.JFrame {
                 .addComponent(sessiontxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(semesterComBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteBtn)
                     .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -177,9 +192,15 @@ public class UpdateStudent extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+
+        /**
+         * the given code takes input from user and converts them into string
+         * and updates the entity (Student) in student table.
+         */
         String new_id = newIDtxt.getText();
         String old_id = idtxt.getText();
         String name = nametxt.getText();
@@ -196,14 +217,19 @@ public class UpdateStudent extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
-            String update = "UPDATE `LMS`.`STUDENT` SET `NAME` = '"+name+"', `F_NAME` = '"+fName+"', `CONTACT` = '"+contact+"', "
-                    + "`DEPT` = '"+dept+"', `SESSION` = '"+session+"', `SEMESTER` = '"+semester+"' WHERE (`SID` = '"+new_id+"');";
             java.sql.Statement st = con.createStatement();
+
+            String update = "UPDATE `LMS`.`STUDENT` SET SID='" + old_id + "', `NAME` = '" + name + "', `F_NAME` = '" + fName + "', `CONTACT` = '" + contact + "', "
+                    + "`DEPT` = '" + dept + "', `SESSION` = '" + session + "', `SEMESTER` = '" + semester + "' WHERE (`SID` = '" + new_id + "')";
+
             st.execute(update);
             JOptionPane.showMessageDialog(null, "updated successfully");
+            setVisible(false);
+            new UpdateStudent().setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println(e);
+            setVisible(true);
         }
 
 
@@ -218,6 +244,45 @@ public class UpdateStudent extends javax.swing.JFrame {
     private void newIDtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newIDtxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_newIDtxtActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+
+        /**
+         * this one will takes an input as id and searches that in student table
+         * if id is found then it will fetch the data and show them in text
+         * fields otherwise it will popup a message 'incorrect credentials '.
+         */
+        String old_id = idtxt.getText();
+        try {
+            String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+            java.sql.Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE SID ='" + old_id + "'");
+            if (rs.next()) {
+                nametxt.setText(rs.getString(2));
+                fnametxt.setText(rs.getString(3));
+                contactxt.setText(rs.getString(4));
+                sessiontxt.setText(rs.getString(6));
+
+                deptComBox.setSelectedItem(rs.getString(5));
+                semesterComBox.setSelectedItem(rs.getString(7));
+                newIDtxt.setEditable(true);
+                idtxt.setEditable(false);
+                 JOptionPane.showMessageDialog(null, "Student found");
+            } else {
+                JOptionPane.showMessageDialog(null, "incorrent credential");
+            }
+    
+//            JOptionPane.showMessageDialog(null, "Student found");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +330,7 @@ public class UpdateStudent extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nametxt;
     private javax.swing.JTextField newIDtxt;
+    private javax.swing.JButton searchBtn;
     private javax.swing.JComboBox<String> semesterComBox;
     private javax.swing.JTextField sessiontxt;
     private javax.swing.JButton updateBtn;

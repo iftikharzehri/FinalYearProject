@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ENTRY timestamp='07:44:14 PM'>SELECT * FROM LMS.issue_book</ENTRY>
+<ENTRY timestamp='07:46:12 PM'>~</ENTRY>
+<ENTRY timestamp='07:46:18 PM'>SELECT * FROM LMS.STUDENT</ENTRY>
+<ENTRY timestamp='07:46:26 PM'>SELECT * FROM LMS.BOOK</ENTRY>
+<ENTRY timestamp='07:46:52 PM'>SELECT * FROM LMS.issue_book</ENTRY>
+<ENTRY timestamp='08:01:12 PM'>SELECT * FROM LMS.issue_book</ENTRY>
+<ENTRY timestamp='08:01:50 PM'>SELECT * FROM LMS.ISSUE_STATUS</ENTRY>
+<ENTRY timestamp='08:01:56 PM'>~</ENTRY>
+<ENTRY timestamp='08:10:39 PM'>SELECT * FROM LMS.BOOK</ENTRY>

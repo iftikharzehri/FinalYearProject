@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ENTRY timestamp='12:00:27 AM'>SELECT LMS.ISSUE_BOOK.issue_id, LMS.ISSUE_BOOK.student_id, LMS.ISSUE_BOOK.book_id, &#x0A;	issue_date, &#x0A;	LMS.ISSUE_BOOK.return_date, LMS.ISSUE_BOOK.return_status &#x0A;	from LMS.ISSUE_BOOK, LMS.STUDENT&#x0A;    join LMS.Student ON LMS.ISSUE_BOOK.student_id = LMS.Student.S_id</ENTRY>
+<ENTRY timestamp='12:02:56 AM'>SELECT * FROM LMS.ISSUE_BOOK JOIN LMS.STUDENT ON LMS.ISSUE_BOOK.student_id = LMS.STUDENT.SID</ENTRY>
+<ENTRY timestamp='12:03:07 AM'>SELECT * FROM LMS.ISSUE_BOOK</ENTRY>
+<ENTRY timestamp='12:05:05 AM'>ALTER TABLE `LMS`.`ISSUE_BOOK` &#x0A;CHANGE COLUMN `student_id` `student_id` INT NOT NULL</ENTRY>
+<ENTRY timestamp='12:05:35 AM'>ALTER TABLE `LMS`.`ISSUE_BOOK` &#x0A;CHANGE COLUMN `student_id` `student_id` INT NOT NULL</ENTRY>
+<ENTRY timestamp='12:05:45 AM'>~</ENTRY>
+<ENTRY timestamp='12:06:20 AM'>~</ENTRY>
+<ENTRY timestamp='12:07:23 AM'>DROP TABLE `LMS`.`ISSUE_BOOK`</ENTRY>
+<ENTRY timestamp='12:07:30 AM'>DROP TABLE `LMS`.`TEST`</ENTRY>

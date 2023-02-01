@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ENTRY timestamp='12:12:02 PM'>SELECT * FROM LMS.BOOK</ENTRY>
+<ENTRY timestamp='12:21:21 PM'>~</ENTRY>
+<ENTRY timestamp='12:38:04 PM'>~</ENTRY>
+<ENTRY timestamp='12:42:47 PM'>~</ENTRY>
+<ENTRY timestamp='12:43:18 PM'>SELECT * FROM LMS.STUDENT</ENTRY>
+<ENTRY timestamp='11:54:27 PM'>SELECT * FROM LMS.STUDENT</ENTRY>
+<ENTRY timestamp='11:54:41 PM'>SELECT * FROM LMS.issue_book</ENTRY>
+<ENTRY timestamp='11:54:52 PM'>SELECT * FROM LMS.BOOK</ENTRY>
+<ENTRY timestamp='11:55:09 PM'>SELECT * FROM LMS.issue_book</ENTRY>
+<ENTRY timestamp='11:56:25 PM'>ALTER TABLE `LMS`.`STUDENT` &#x0A;CHANGE COLUMN `SEMESTER` `SEMESTER` INT NOT NULL</ENTRY>

@@ -4,6 +4,7 @@
  */
 package Frames;
 
+import com.sun.jdi.connect.spi.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import java.sql.ResultSet;
 
 /**
  *
@@ -19,20 +21,28 @@ import net.proteanit.sql.DbUtils;
 public class StudentList extends javax.swing.JFrame {
 
     /**
-     * Creates new form STUDENT_LIST
+     * the given code will select all the columns from student table including
+     * data and prints them in jTable1.
      */
     public StudentList() throws ClassNotFoundException, SQLException {
         initComponents();
-          String user = "iftidev";
-            String password = "balochistan";
-            String url = "jdbc:mysql://localhost:3306/LMS";
-            Class.forName("com.mysql.cj.jdbc.Driver");
+        String user = "iftidev";
+        String password = "balochistan";
+        String url = "jdbc:mysql://localhost:3306/LMS";
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
-            java.sql.Connection con = DriverManager.getConnection(url, user, password);
-
-            java.sql.Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT");
-            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        java.sql.Connection con = DriverManager.getConnection(url, user, password);
+        // statement keyword used for CRUD operations
+        java.sql.Statement st = con.createStatement();
+        /**
+         * ResultSet keyword helps us to get the data from database and print
+         * them in a table (jTable1)       
+         * and table model is set according to database table and will
+         * automatically add columns and rows.
+         */
+      
+        ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT");
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
     }
 
     /**
@@ -46,15 +56,30 @@ public class StudentList extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        deletetxt = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        deletetxt = new javax.swing.JTextField();
+        csitBtn = new javax.swing.JButton();
+        bbaBtn = new javax.swing.JButton();
+        lawBtn = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        refreshBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
+        jTable1.setBackground(new java.awt.Color(0, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("delete a student");
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        deletetxt.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        deletetxt.setBorder(javax.swing.BorderFactory.createTitledBorder("Enter ID"));
+
+        jButton1.setText("Delete Student");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -68,58 +93,244 @@ public class StudentList extends javax.swing.JFrame {
             }
         });
 
+        csitBtn.setText("CS & IT");
+        csitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                csitBtnActionPerformed(evt);
+            }
+        });
+
+        bbaBtn.setText("BBA");
+        bbaBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bbaBtnActionPerformed(evt);
+            }
+        });
+
+        lawBtn.setText("LAW");
+        lawBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lawBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(1022, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(deletetxt)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(csitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bbaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lawBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(csitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bbaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lawBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(deletetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        jLabel1.setText("STUDENT LIST");
+
+        refreshBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frames/refresh1.png"))); // NOI18N
+        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(372, 372, 372)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(refreshBtn)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addComponent(deletetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addGap(33, 33, 33))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(deletetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String DELETE = deletetxt.getText();
+        String DELETE = deletetxt.getText().trim();
         try {
-             String user = "iftidev";
+
+            String user = "iftidev";
             String password = "balochistan";
             String url = "jdbc:mysql://localhost:3306/LMS";
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
-String deleteQuery ="DELETE FROM LMS.STUDENT WHERE SID= '"+DELETE+"'";
             java.sql.Statement st = con.createStatement();
-       st.execute(deleteQuery);
-            setVisible(false);
-            new StudentList().setVisible(true);
-            JOptionPane.showMessageDialog(null,"'"+DELETE+"' DELETED SUCCESSFULLY");
+
+            /**
+             * here we are search for valid data if it finds the data from
+             * student table from database then it will delete the desired
+             * entity, and opens a new frame.
+             *
+             */
+            ResultSet rs = st.executeQuery("Select * from LMS.STUDENT where SID ='" + DELETE + "'");
+            if (rs.next()) {
+                String deleteQuery = "DELETE FROM LMS.STUDENT WHERE SID= '" + DELETE + "'";
+                st.execute(deleteQuery);
+                setVisible(false);
+                new StudentList().setVisible(true);
+                JOptionPane.showMessageDialog(null, "'" + DELETE + "' DELETED SUCCESSFULLY");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "please enter a valid id!");
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-dispose();        // TODO add your handling code here:
+        dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void csitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csitBtnActionPerformed
+        try {
+
+            String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+
+            java.sql.Statement st = con.createStatement();
+            /**
+             * below code will show the data of students who are enrolled in CS
+             * & IT dept.
+             */
+            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE DEPT = 'CS & IT' ");
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_csitBtnActionPerformed
+
+    private void bbaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbaBtnActionPerformed
+        try {
+
+            String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+
+            java.sql.Statement st = con.createStatement();
+            /**
+             * below code will show the data of students who are enrolled in BBA
+             * dept.
+             */
+            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE DEPT = 'BBA' ");
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_bbaBtnActionPerformed
+
+    private void lawBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lawBtnActionPerformed
+        try {
+
+            String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+
+            java.sql.Statement st = con.createStatement();
+            /**
+             * below code will show the data of students who are enrolled in LAW
+             * dept.
+             */
+            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT WHERE DEPT = 'LAW' ");
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_lawBtnActionPerformed
+
+    private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
+        try {
+            String user = "iftidev";
+            String password = "balochistan";
+            String url = "jdbc:mysql://localhost:3306/LMS";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            java.sql.Connection con = DriverManager.getConnection(url, user, password);
+
+            java.sql.Statement st = con.createStatement();
+            /**
+             * it will refreshes and regenerates the table and stores data from Student table.
+             */
+            ResultSet rs = st.executeQuery("SELECT * FROM LMS.STUDENT");
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_refreshBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,10 +375,17 @@ dispose();        // TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bbaBtn;
+    private javax.swing.JButton csitBtn;
     private javax.swing.JTextField deletetxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton lawBtn;
+    private javax.swing.JButton refreshBtn;
     // End of variables declaration//GEN-END:variables
 }

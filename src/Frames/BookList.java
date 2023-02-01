@@ -19,7 +19,7 @@ import net.proteanit.sql.DbUtils;
 public class BookList extends javax.swing.JFrame {
 
     /**
-     * Creates new form BookList
+     *it fetches the data from database (book table) and prints it in jTable1
      */
     public BookList() throws SQLException, ClassNotFoundException {
         initComponents();
@@ -51,22 +51,13 @@ public class BookList extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Book List");
+        setUndecorated(true);
+        setResizable(false);
 
         jTable1.setBackground(new java.awt.Color(0, 204, 204));
-        jTable1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTable1.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
@@ -131,6 +122,7 @@ public class BookList extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -142,6 +134,10 @@ public class BookList extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+/**
+ * it takes an input and delete the row where input = (the input / ID) from book table 
+ */
         String deleteBook = jTextField1.getText();
         try {
             String user = "iftidev";

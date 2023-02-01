@@ -150,6 +150,9 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_userNTxtActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+/**
+         * here we get an inputs from user if the given data matches the desired data then we open the Home frame for user.
+         */
 
         if (userNTxt.getText().trim().toLowerCase().equals("admin") 
                 && passTxt.getText().toLowerCase().trim().equals("admin")) {
@@ -157,7 +160,8 @@ public class LogIn extends javax.swing.JFrame {
             setVisible(false);
             new Home().setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Invalid User name or Password ");
+            JOptionPane.showMessageDialog(null, "Invalid User Name or Password ");
+            
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

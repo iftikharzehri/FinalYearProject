@@ -4,11 +4,9 @@
  */
 package Frames;
 
-import java.awt.Color;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
-import javax.swing.JTextField;
 
 /**
  *
@@ -41,7 +39,7 @@ public class Issue_Book extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Issue a Book");
-        setAlwaysOnTop(true);
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
@@ -84,10 +82,10 @@ public class Issue_Book extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(jButton1)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(62, 62, 62))
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -98,22 +96,22 @@ public class Issue_Book extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(student_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(book_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(student_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(book_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(student_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(book_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(76, 76, 76))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,6 +130,12 @@ public class Issue_Book extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        /**
+         * here we take inputs from user to issue a book. if student and book id
+         *  found in student table and book table then we issue a book and run a
+         * query for insertion in issue_book table.
+         */
         String stu_id = student_idtxt.getText();
         String bookId = book_idtxt.getText();
         String status = "No";
@@ -149,8 +153,8 @@ public class Issue_Book extends javax.swing.JFrame {
                 ResultSet rs1 = st.executeQuery(" SELECT * FROM LMS.BOOK WHERE BOOK_ID = '" + bookId + "'");
                 if (rs1.next()) {
                     st.executeUpdate("INSERT INTO `LMS`.`ISSUE_BOOK` ( `STU_ID`, `BOOK_ID`, `ISSUE_DATE`, `RETURN_DATE`, `RETURN_STATUS`) "
-                            + "VALUES ( '"+stu_id+"', '"+bookId+"', current_timestamp(), date_add(current_timestamp(), interval 10 day), '"+status+"');");
-                    
+                            + "VALUES ( '" + stu_id + "', '" + bookId + "', current_timestamp(), date_add(current_timestamp(), interval 10 day), '" + status + "')");
+
 //                    JOptionPane.showMessageDialog(null, "issued succssfully!");
                     setVisible(false);
                     new Issue_Book().setVisible(true);
@@ -168,7 +172,7 @@ public class Issue_Book extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "Issue Failed!");
         } catch (Exception e) {
 
-            JOptionPane.showMessageDialog(null, "issue failed due to '"+e+"'");
+            JOptionPane.showMessageDialog(null, "issue failed due to '" + e + "'");
             System.out.println(e);
         }
         JOptionPane.showMessageDialog(null, "issued successfully!");
@@ -179,8 +183,8 @@ public class Issue_Book extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void student_idtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_student_idtxtActionPerformed
-       
-        
+
+
     }//GEN-LAST:event_student_idtxtActionPerformed
 
     /**
