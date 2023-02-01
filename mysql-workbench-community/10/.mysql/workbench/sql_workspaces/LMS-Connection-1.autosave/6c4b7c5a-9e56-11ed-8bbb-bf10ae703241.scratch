@@ -1,5 +1,0 @@
-SELECT * FROM LMS.ISSUE_BOOK;
-INSERT INTO `LMS`.`ISSUE_BOOK` (`ISSUE_ID`, `STU_ID`, `BOOK_ID`, `ISSUE_DATE`, `RETURN_DATE`, `RETURN_STATUS`) VALUES ('6', '74553581', '5', current_timestamp(), date_add(current_timestamp(), interval 10 day), 'no');
-UPDATE `LMS`.`ISSUE_BOOK` SET `RETURN_STATUS` = 'no' WHERE (`ISSUE_ID` = '3' AND STU_ID = 74553581);
-
-INSERT INTO `LMS`.`ISSUE_BOOK` ( `STU_ID`, `BOOK_ID`, `ISSUE_DATE`, `RETURN_DATE`, `RETURN_STATUS`) VALUES ( '74553581', '1009', current_timestamp(), date_add(current_timestamp(), interval 10 day), 'no');
